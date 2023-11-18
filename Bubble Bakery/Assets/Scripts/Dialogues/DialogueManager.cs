@@ -27,8 +27,6 @@ namespace Dialogues
         }
         public void SetName(string characterName)
         {
-            Debug.Log($"name: {characterName}");
-            Debug.Log($"tmp: {dialogueName.text}");
             dialogueName.text = characterName;
         }
         

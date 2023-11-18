@@ -27,8 +27,10 @@ namespace Timeline
             string dialogueText = arguments[1];
             dialogueManager.SetContent(dialogueText);
             
-            dialogueManager.HidePanel();
+            // dialogueManager.HidePanel();
         }
+        
+        
 
 
         private void InformTimelineToGoOn()
