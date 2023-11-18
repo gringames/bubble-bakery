@@ -92,6 +92,9 @@ namespace Timeline
                 case TALK:
                     talkAction.Handle(arguments);
                     break;
+                default:
+                    Debug.LogError($"unknown action: {action}" );
+                    break;
             }
         }
 
