@@ -6,32 +6,32 @@ ENTER§jean
 TALK§Stranger§Oh, you’re open. I thought this bakery was getting closed yesterday. 
 TALK§You§It’s Christmas Eve. It didn’t feel right to leave the townspeople without their cakes and muffins today.
 TALK§Stranger§Celebrating Christmas is such a stupid idea. So much time wasted that could’ve been spent building successful businesses.
-TALK§Stranger§Anyway, my name’s Jean. I work for Fishy Business Inc., the corporation that is going to pay your debt.
-TALK§You§You mean, the company that is going to buy my shop
-TALK§Jean§Well, honey, small businesses never last long. 20% of them fail during the first two years. 45% don’t even last five. And 65% close in the first 10.
-TALK§Jean§The fiasco of your bakery was just a matter of time. You’re incredibly lucky that we are willing to pay you for it. And you’re also welcome.
-TALK§You§I know I have a big debt, but I could’ve payed it with a little more time!
-TALK§Jean§Could you? Let’s see. You called your business ‘Bubble Bakery’ because you serve some kind of bubble icing. Come on, anyone can make bubbles, why are yours so special?
-TALK§You§Well, they-
-TALK§Jean§Bubbles as a theme is, uh… un unwise business plan, I’d say.
-TALK§Jean§But don’t feel bad, not everyone is creative enough for these things.
-TALK§You§And what is it that you’ll build here that is such a good business plan?
-TALK§Jean§A new Burgerfins! The fast-food chain with 49 restaurants all across the seven seas that is making billions of sandollars.
-TALK§Jean§People love it because they don’t have to ask where the fish we serve come from. And everyone is tired of all that ‘eco-friendly’, ‘buy local’ headache.
-TALK§Jean§Burgerfins! Don’t eat moral, eat fast.
-TALK§You§Ah, so my bakery is being turned into a predatory business. That’s great.
-TALK§Jean§That’s what happens when you’re last in the food chain, honey. And I guess you could say that I am a finance shark. Ha!
-TALK§You§…
-TALK§You§Do you want a bubble muffin before you leave?
-TALK§Jean§Of course not. You somehow manage to turn the salty water around this bakery into sugary one. It’s incredible. And also revolting.
-TALK§Jean§I’ll be on my way now. You’ll receive the payment from Fishy Business Inc. tonight. I hope you invest it in a… better way this time.
+#TALK§Stranger§Anyway, my name’s Jean. I work for Fishy Business Inc., the corporation that is going to pay your debt.
+#TALK§You§You mean, the company that is going to buy my shop
+#TALK§Jean§Well, honey, small businesses never last long. 20% of them fail during the first two years. 45% don’t even last five. And 65% close in the first 10.
+#TALK§Jean§The fiasco of your bakery was just a matter of time. You’re incredibly lucky that we are willing to pay you for it. And you’re also welcome.
+#TALK§You§I know I have a big debt, but I could’ve payed it with a little more time!
+#TALK§Jean§Could you? Let’s see. You called your business ‘Bubble Bakery’ because you serve some kind of bubble icing. Come on, anyone can make bubbles, why are yours so special?
+#TALK§You§Well, they-
+#TALK§Jean§Bubbles as a theme is, uh… un unwise business plan, I’d say.
+#TALK§Jean§But don’t feel bad, not everyone is creative enough for these things.
+#TALK§You§And what is it that you’ll build here that is such a good business plan?
+#TALK§Jean§A new Burgerfins! The fast-food chain with 49 restaurants all across the seven seas that is making billions of sandollars.
+#TALK§Jean§People love it because they don’t have to ask where the fish we serve come from. And everyone is tired of all that ‘eco-friendly’, ‘buy local’ headache.
+#TALK§Jean§Burgerfins! Don’t eat moral, eat fast.
+#TALK§You§Ah, so my bakery is being turned into a predatory business. That’s great.
+#TALK§Jean§That’s what happens when you’re last in the food chain, honey. And I guess you could say that I am a finance shark. Ha!
+#TALK§You§…
+#TALK§You§Do you want a bubble muffin before you leave?
+#TALK§Jean§Of course not. You somehow manage to turn the salty water around this bakery into sugary one. It’s incredible. And also revolting.
+#TALK§Jean§I’ll be on my way now. You’ll receive the payment from Fishy Business Inc. tonight. I hope you invest it in a… better way this time.
 
 EXIT§jean
-
 
 ### CORAL
 
 ENTER§coral
+ENTER§cthullu
 
 # Dialogue with Coral
 TALK§Coral§Oh my gosh you are open! You just saved my day!
@@ -43,7 +43,7 @@ TALK§You§No wonder you’re drained. May I suggest a ‘Life buoy donut’? Th
 TALK§Coral§Oh, yes please! I love how you decorate them. Giggles. They remind me of my times chasing down cruise ships.
 # bake the donut
 TALK§You§Here you go, a freshly baked ‘Life buoy donut’.
-TALK§Coral§You are my saviour! My people disaprove of my love for chocolate and glace icing, you know.
+TALK§Coral§You are my saviour! My people disapprove of my love for chocolate and glace icing, you know.
 TALK§Coral§They don’t understand eating if you haven’t lured your food into a horrible death first. Sighs
 TALK§You§Yeah, you’re the only merepeople customer I have.
 TALK§Coral§Right? I like having sweet things from time to time. Drinking earthlings’ blood and devouring their flesh can get boring sometimes.
@@ -52,3 +52,7 @@ TALK§Coral§Anyway, thank you for the donut! And have a happy Christmas!
 TALK§You§You too, Coral!
 
 EXIT§coral
+
+### CTHULLU
+
+ENTER§cthullu
