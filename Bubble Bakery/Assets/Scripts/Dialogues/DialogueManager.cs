@@ -24,6 +24,8 @@ namespace Dialogues
         
         public void ShowPanel()
         {
+            dialogueName.text = "";
+            dialogueText.text = "";
             dialoguePanel.SetActive(true);
         }
 
