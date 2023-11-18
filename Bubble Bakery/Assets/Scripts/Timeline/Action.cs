@@ -2,6 +2,6 @@
 {
     public interface IAction
     {
-        public abstract void Handle(string[] arguments);
+        public void Handle(string[] arguments);
     }
 }

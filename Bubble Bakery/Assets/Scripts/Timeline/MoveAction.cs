@@ -39,6 +39,11 @@ namespace Timeline
                 character.Enter(entryPoint, targetPoint);
             else
                 character.Exit(exitPoint);
+
+            while (!character.finishedMoving)
+            {
+                Debug.Log("wait");
+            }
         }
 
         private MovingObject GetCharacterToName(string characterName)
