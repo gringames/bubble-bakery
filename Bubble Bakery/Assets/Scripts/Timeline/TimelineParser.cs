@@ -19,18 +19,21 @@ namespace Timeline
         private const string EXIT = "EXIT";
         private const string ORDER = "ORDER";
 
-        // OBJECTS
+        // PARSING
+        private int _lineIndex = 0;
+        private int _lineCount;
 
 
         private void Awake()
         {
             InitializeTimeline();
-            ParseTimeLine();
+            ParseNextLine();
         }
 
         private void InitializeTimeline()
         {
             _lines = SplitTextAtNewLine(timelineFile.text);
+            _lineCount = _lines.Length;
         }
 
         private static string[] SplitTextAtNewLine(string text)
@@ -39,17 +42,24 @@ namespace Timeline
                 StringSplitOptions.RemoveEmptyEntries);
         }
 
-        private void ParseTimeLine()
+        public void ParseNextLine()
         {
-            foreach (var line in _lines)
+            if (_lineIndex == _lineCount)
             {
-                Debug.Log("current line = " + line);
-
-                // skip line if it is a comment
-                if (line.StartsWith(commentCharacter)) continue;
-
-                HandleLine(line);
+                Debug.Log("end of timeline reached");
+                return;
+                // TODO: display end scene
             }
+            
+            var line = _lines[_lineIndex];
+            _lineIndex++;
+
+            Debug.Log("current line = " + line);
+
+            // skip line if it is a comment
+            if (line.StartsWith(commentCharacter)) ParseNextLine();
+
+            HandleLine(line);
         }
 
         private void HandleLine(string line)

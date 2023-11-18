@@ -1,23 +1,22 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class MovingObject : MonoBehaviour
 {
-    public bool finishedMoving = false;
+    public Action OnFinishedMoving;
     
     [Header("Properties")] [SerializeField]
     private float speed = 0.1f;
 
     public void Enter(Transform entryPoint, Transform targetPoint)
     {
-        finishedMoving = false;
         transform.position = entryPoint.position;
         StartCoroutine(nameof(MoveTo), targetPoint);
     }
     
     public void Exit(Transform exitPoint)
     {
-        finishedMoving = false;
         StartCoroutine(nameof(MoveTo), exitPoint);
     }
 
@@ -31,6 +30,6 @@ public class MovingObject : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        finishedMoving = true;
+        OnFinishedMoving?.Invoke();
     }
 }

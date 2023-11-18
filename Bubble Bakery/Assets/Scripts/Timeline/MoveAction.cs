@@ -4,6 +4,8 @@ namespace Timeline
 {
     public class MoveAction : MonoBehaviour, IAction
     {
+        [Header("Timeline")] [SerializeField] private TimelineParser timelineParser;
+        
         [Header("Characters")] [SerializeField]
         private MovingObject walrus;
 
@@ -18,6 +20,10 @@ namespace Timeline
         public const string MoveIn = "IN";
         public const string MoveOut = "OUT";
 
+
+        private MovingObject _currentCharacter;
+
+
         /*
          * ARGUMENTS:
          * - name: the character's name -> store them here
@@ -30,20 +36,18 @@ namespace Timeline
                 Debug.LogError("too few arguments for EnterAction provided!");
                 return;
             }
-            
+
             string characterName = arguments[0].ToLower();
             var character = GetCharacterToName(characterName);
+
+            _currentCharacter = character;
+            _currentCharacter.OnFinishedMoving += InformTimelineToGoOn;
 
             string type = arguments[1];
             if (type == MoveIn)
                 character.Enter(entryPoint, targetPoint);
             else
                 character.Exit(exitPoint);
-
-            while (!character.finishedMoving)
-            {
-                Debug.Log("wait");
-            }
         }
 
         private MovingObject GetCharacterToName(string characterName)
@@ -56,6 +60,12 @@ namespace Timeline
                 "shark" => shark,
                 _ => null
             };
+        }
+
+        private void InformTimelineToGoOn()
+        {
+            timelineParser.ParseNextLine();
+            _currentCharacter.OnFinishedMoving -= InformTimelineToGoOn;
         }
     }
 }
