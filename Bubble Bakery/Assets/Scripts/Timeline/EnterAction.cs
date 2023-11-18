@@ -1,26 +1,14 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Timeline
 {
     public class EnterAction : MonoBehaviour, IAction
     {
-        [Header("Characters")] [SerializeField]
-        private static MovingObject Walrus;
-        private static MovingObject Shark;
-        private static MovingObject Cthullu;
-        private static MovingObject Mereperson;
-        // TODO: add other characters here + in the dictionary
-
-        private readonly Dictionary<string, MovingObject> _nameToCharacterObject
-            = new()
-            {
-                {"walrus", Walrus},
-                {"shark", Shark},
-                {"cthullu", Cthullu},
-                {"mereperson", Mereperson}
-            };
-
+        [Header("Characters")]
+        [SerializeField] private MovingObject walrus;
+        [SerializeField] private MovingObject shark;
+        [SerializeField] private MovingObject cthullu;
+        [SerializeField] private MovingObject mereperson;
 
         /*
          * ARGUMENTS:
@@ -35,7 +23,22 @@ namespace Timeline
                 return;
             }
             
-            string name = arguments[0];
+            string name = arguments[0].ToLower();
+            var character = GetCharacterToName(name);
+            character.Enter();
+        }
+
+        private MovingObject GetCharacterToName(string name)
+        {
+            Debug.Log(name);
+            return name switch
+            {
+                "walrus" => walrus,
+                "cthullu" => cthullu,
+                "mereperson" => mereperson,
+                "shark" => shark,
+                _ => null
+            };
         }
     }
 }

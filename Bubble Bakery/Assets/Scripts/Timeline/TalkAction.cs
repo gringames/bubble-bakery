@@ -1,6 +1,8 @@
-﻿namespace Timeline
+﻿using UnityEngine;
+
+namespace Timeline
 {
-    public class TalkAction : IAction
+    public class TalkAction : MonoBehaviour, IAction
     {
         public void Handle(string[] arguments)
         {

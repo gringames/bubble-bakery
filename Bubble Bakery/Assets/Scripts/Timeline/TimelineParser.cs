@@ -5,6 +5,14 @@ namespace Timeline
 {
     public class TimelineParser : MonoBehaviour
     {
+        
+        [Header("Actions")]
+        [SerializeField] private EnterAction enterAction;
+        [SerializeField] private ExitAction exitAction;
+        [SerializeField] private OrderAction orderAction;
+        [SerializeField] private TalkAction talkAction;
+        
+        [Header("File")]
         [SerializeField] private TextAsset timelineFile;
         [SerializeField] private string commentCharacter = "#";
         private string[] _lines;
@@ -16,10 +24,7 @@ namespace Timeline
         private const string ORDER = "ORDER"; 
         
         // OBJECTS
-        private readonly EnterAction _enterAction = new EnterAction();
-        private readonly ExitAction _exitAction = new ExitAction();
-        private readonly OrderAction _orderAction = new OrderAction();
-        private readonly TalkAction _talkAction = new TalkAction();
+
 
         private void Awake()
         {
@@ -61,16 +66,16 @@ namespace Timeline
             switch (action)
             {
                 case ENTER: 
-                    _enterAction.Handle(arguments);
+                    enterAction.Handle(arguments);
                     break;
                 case EXIT:
-                    _exitAction.Handle(arguments);
+                    exitAction.Handle(arguments);
                     break;
                 case ORDER:
-                    _orderAction.Handle(arguments);
+                    orderAction.Handle(arguments);
                     break;
                 case TALK:
-                    _talkAction.Handle(arguments);
+                    talkAction.Handle(arguments);
                     break;
             }
         }

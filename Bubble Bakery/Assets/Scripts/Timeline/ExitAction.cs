@@ -1,6 +1,8 @@
-﻿namespace Timeline
+﻿using UnityEngine;
+
+namespace Timeline
 {
-    public class ExitAction : IAction
+    public class ExitAction : MonoBehaviour, IAction
     {
         public void Handle(string[] arguments)
         {

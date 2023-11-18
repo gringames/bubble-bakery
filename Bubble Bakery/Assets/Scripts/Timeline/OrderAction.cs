@@ -1,6 +1,8 @@
-﻿namespace Timeline
+﻿using UnityEngine;
+
+namespace Timeline
 {
-    public class OrderAction : IAction
+    public class OrderAction : MonoBehaviour,  IAction
     {
         public void Handle(string[] arguments)
         {
