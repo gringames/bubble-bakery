@@ -1,5 +1,5 @@
-# ENTER cthullu
-# EXIT cthullu
+# ENTER-cthullu
+# EXIT-cthullu
 
 
-ENTER CthUllu
+TALK-Stranger-Oh, you’re open. I thought this bakery was getting closed yesterday. 

@@ -11,6 +11,7 @@ namespace Timeline
 
         [Header("File")] [SerializeField] private TextAsset timelineFile;
         [SerializeField] private string commentCharacter = "#";
+        [SerializeField] private string splitCharacter = "-";
         private string[] _lines;
 
         // ACTIONS
@@ -54,12 +55,16 @@ namespace Timeline
             var line = _lines[_lineIndex];
             _lineIndex++;
 
-            Debug.Log("current line = " + line);
-
             // skip line if it is a comment
-            if (SkipLine(line)) ParseNextLine();
-
-            HandleLine(line);
+            if (SkipLine(line))
+            {
+                ParseNextLine();
+            }
+            else
+            {
+                Debug.Log("current line = " + line);
+                HandleLine(line);
+            }
         }
 
         private bool SkipLine(string line)
@@ -71,7 +76,7 @@ namespace Timeline
 
         private void HandleLine(string line)
         {
-            string[] contents = line.Split(" ");
+            string[] contents = line.Split(splitCharacter);
 
             var action = contents[0];
             var arguments = GetArguments(contents);
@@ -93,7 +98,7 @@ namespace Timeline
                     talkAction.Handle(arguments);
                     break;
                 default:
-                    Debug.LogError($"unknown action: {action}" );
+                    Debug.LogError($"unknown action: {action}");
                     break;
             }
         }
