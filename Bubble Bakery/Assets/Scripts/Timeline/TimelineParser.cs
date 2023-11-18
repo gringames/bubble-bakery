@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Timeline
@@ -95,6 +97,7 @@ namespace Timeline
                     orderAction.Handle(arguments);
                     break;
                 case TALK:
+                    arguments = ConvertAllTalkLinesToArguments(arguments);
                     talkAction.Handle(arguments);
                     break;
                 default:
@@ -134,6 +137,33 @@ namespace Timeline
             newArguments[originalLength] = type;
 
             return newArguments;
+        }
+
+        private string[] ConvertAllTalkLinesToArguments(string[] currentArguments)
+        {
+            List<string> talksAsList = new List<string>();
+
+            var characterName = currentArguments[0];
+            var content = currentArguments[1];
+            
+            talksAsList.Add(characterName);
+            talksAsList.Add(content);
+            
+            var line = _lines[_lineIndex];
+
+            while (line.StartsWith(TALK))
+            {
+                var splits = line.Split(splitCharacter);
+
+                // a talk line is comprised of TALK-name-content, we omit TALK here, as it is shared by all steps
+                talksAsList.Add(splits[1]);
+                talksAsList.Add(splits[2]);
+                
+                _lineIndex++;
+                line = _lines[_lineIndex];
+            }
+
+            return talksAsList.ToArray();
         }
     }
 }

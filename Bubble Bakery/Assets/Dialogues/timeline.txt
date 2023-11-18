@@ -1,5 +1,9 @@
-# ENTER-cthullu
-# EXIT-cthullu
-
-
+#ENTER-cthullu
 TALK-Stranger-Oh, you’re open. I thought this bakery was getting closed yesterday. 
+TALK-You-It’s Christmas Eve. It didn’t feel right to leave the townspeople without their cakes and muffins today.
+TALK-Stranger-Celebrating Christmas is such a stupid idea. So much time wasted that could’ve been spent building successful businesses.
+TALK-Stranger-Anyway, my name’s Jean. I work for Fishy Business Inc., the corporation that is going to pay your debt.
+TALK-You-You mean, the company that is going to buy my shop
+#EXIT-cthullu
+
+
