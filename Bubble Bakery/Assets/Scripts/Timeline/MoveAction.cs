@@ -9,9 +9,11 @@ namespace Timeline
         [Header("Characters")] [SerializeField]
         private MovingObject walrus;
 
-        [SerializeField] private MovingObject shark;
+        [SerializeField] private MovingObject jean;
         [SerializeField] private MovingObject cthullu;
-        [SerializeField] private MovingObject mereperson;
+        [SerializeField] private MovingObject cthullusChildren;
+        [SerializeField] private MovingObject cthulluAndChildren;
+        [SerializeField] private MovingObject coral;
 
         [Header("Points")] [SerializeField] private Transform entryPoint;
         [SerializeField] private Transform targetPoint;
@@ -56,8 +58,10 @@ namespace Timeline
             {
                 "walrus" => walrus,
                 "cthullu" => cthullu,
-                "mereperson" => mereperson,
-                "shark" => shark,
+                "cthulluandchildren" => cthulluAndChildren,
+                "cthulluschildren" => cthullusChildren,
+                "coral" => coral,
+                "jean" => jean,
                 _ => null
             };
         }

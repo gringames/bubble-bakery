@@ -1,4 +1,4 @@
-ENTER-shark
+ENTER-jean
 
 # Dialogue with Jean
 TALK-Stranger-Oh, you’re open. I thought this bakery was getting closed yesterday. 
@@ -6,7 +6,7 @@ TALK-You-It’s Christmas Eve. It didn’t feel right to leave the townspeople w
 TALK-Stranger-Celebrating Christmas is such a stupid idea. So much time wasted that could’ve been spent building successful businesses.
 TALK-Stranger-Anyway, my name’s Jean. I work for Fishy Business Inc., the corporation that is going to pay your debt.
 TALK-You-You mean, the company that is going to buy my shop
-TALK-Jean-Well, honey, small businessess never last long. 20% of them fail during the first two years. 45% don’t even last five. And 65% close in the first 10.
+TALK-Jean-Well, honey, small businesses never last long. 20% of them fail during the first two years. 45% don’t even last five. And 65% close in the first 10.
 TALK-Jean-The fiasco of your bakery was just a matter of time. You’re incredibly lucky that we are willing to pay you for it. And you’re also welcome.
 TALK-You-I know I have a big debt, but I could’ve payed it with a little more time!
 TALK-Jean-Could you? Let’s see. You called your business ‘Bubble Bakery’ because you serve some kind of bubble icing. Come on, anyone can make bubbles, why are yours so special?
@@ -22,8 +22,8 @@ TALK-Jean-That’s what happens when you’re last in the food chain, honey. And
 TALK-You-…
 TALK-You-Do you want a bubble muffin before you leave?
 TALK-Jean-Of course not. You somehow manage to turn the salty water around this bakery into sugary one. It’s incredible. And also revolting.
-TALK-Jean-I’ll be on my way now. You’ll receive the payment from Fishy Bussiness Inc. tonight. I hope you invest it in a… better way this time.
+TALK-Jean-I’ll be on my way now. You’ll receive the payment from Fishy Business Inc. tonight. I hope you invest it in a… better way this time.
 
-EXIT-shark
+EXIT-jean
 
 
