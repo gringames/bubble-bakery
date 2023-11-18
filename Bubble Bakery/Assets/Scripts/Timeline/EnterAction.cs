@@ -9,6 +9,8 @@ namespace Timeline
         [SerializeField] private MovingObject shark;
         [SerializeField] private MovingObject cthullu;
         [SerializeField] private MovingObject mereperson;
+        
+        
 
         /*
          * ARGUMENTS:
