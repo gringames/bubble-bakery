@@ -15,27 +15,27 @@ namespace Timeline
         [SerializeField] private Transform targetPoint;
         [SerializeField] private Transform exitPoint;
 
-        public static string MoveIN = "IN";
-        public static string MoveOUT = "OUT";
+        public const string MoveIn = "IN";
+        public const string MoveOut = "OUT";
 
         /*
          * ARGUMENTS:
-         * - type: IN/OUT -> side the object should move to
          * - name: the character's name -> store them here
+         * - type: IN/OUT -> side the object should move to
          */
         public void Handle(string[] arguments)
         {
-            if (arguments.Length <= 1)
+            if (arguments.Length < 2)
             {
                 Debug.LogError("too few arguments for EnterAction provided!");
                 return;
             }
             
-            string characterName = arguments[1].ToLower();
+            string characterName = arguments[0].ToLower();
             var character = GetCharacterToName(characterName);
 
-            string type = arguments[0];
-            if (type == MoveIN)
+            string type = arguments[1];
+            if (type == MoveIn)
                 character.Enter(entryPoint, targetPoint);
             else
                 character.Exit(exitPoint);
@@ -43,7 +43,6 @@ namespace Timeline
 
         private MovingObject GetCharacterToName(string characterName)
         {
-            Debug.Log(characterName);
             return characterName switch
             {
                 "walrus" => walrus,

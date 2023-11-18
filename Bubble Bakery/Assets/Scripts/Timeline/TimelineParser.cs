@@ -97,9 +97,14 @@ namespace Timeline
 
             string[] newArguments = new string[originalLength + 1];
 
+            for (int i = 0; i < originalLength; i++)
+            {
+                newArguments[i] = originalArguments[i];
+            }
+
             string type = isEnter
-                ? MoveAction.MoveIN
-                : MoveAction.MoveOUT;
+                ? MoveAction.MoveIn
+                : MoveAction.MoveOut;
 
             newArguments[originalLength] = type;
 
