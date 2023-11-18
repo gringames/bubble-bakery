@@ -45,7 +45,6 @@ namespace Dialogues
             StartCoroutine(nameof(Type), content);
         }
 
-        // TODO: call that on MBL
         public void SkipTyping()
         {
             StopAllCoroutines();
