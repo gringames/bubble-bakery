@@ -1451,7 +1451,7 @@ MonoBehaviour:
   talkAction: {fileID: 1677659551}
   timelineFile: {fileID: 4900000, guid: 8be7edb24dec81c4fbaad157c8543688, type: 3}
   commentCharacter: '#'
-  splitCharacter: '-'
+  splitCharacter: "\xA7"
 --- !u!1 &1427085161
 GameObject:
   m_ObjectHideFlags: 0

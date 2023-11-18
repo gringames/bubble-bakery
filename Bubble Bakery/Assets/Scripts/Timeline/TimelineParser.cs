@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +12,7 @@ namespace Timeline
 
         [Header("File")] [SerializeField] private TextAsset timelineFile;
         [SerializeField] private string commentCharacter = "#";
-        [SerializeField] private string splitCharacter = "-";
+        [SerializeField] private string splitCharacter = "§";
         private string[] _lines;
 
         // ACTIONS

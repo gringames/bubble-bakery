@@ -1,5 +1,4 @@
-﻿using System;
-using Dialogues;
+﻿using Dialogues;
 using UnityEngine;
 
 namespace Timeline
@@ -79,6 +78,7 @@ namespace Timeline
         {
             dialogueManager.HidePanel();
             _nameIndex = 0;
+            _dialogueIsFinished = false;
         }
         
         private void InformTimelineToGoOn()
