@@ -11,6 +11,17 @@ namespace Timeline
         [Header("Dialogue Properties")] [SerializeField]
         private DialogueManager dialogueManager;
 
+
+        private string[] _namesAndDialogues;
+        private int _nameIndex = 0;
+
+        private bool _dialogueIsFinished;
+
+        private void OnEnable()
+        {
+            dialogueManager.OnFinishedTyping += SetFinishedToTrue;
+        }
+
         public void Handle(string[] arguments)
         {
             if (arguments.Length % 2 != 0)
@@ -19,24 +30,65 @@ namespace Timeline
                 return;
             }
 
+            _namesAndDialogues = arguments;
+
             dialogueManager.ShowPanel();
-            DisplayFirstDialoguePart(arguments);
-            // TODO: listen to mouse click and traverse dialogue
+            DisplayNextDialoguePart();
         }
 
-        private void DisplayFirstDialoguePart(string[] arguments)
+        private void DisplayNextDialoguePart()
         {
-            string characterName = arguments[0];
-            dialogueManager.SetName(characterName);
+            if (_nameIndex >= _namesAndDialogues.Length)
+            {
+                Debug.Log("dialogue ended.");
+                ResetDialogue();
+                InformTimelineToGoOn();
+            }
+            
+            DisplayName(_namesAndDialogues[_nameIndex]);
+            AnimateDialogueText(_namesAndDialogues[_nameIndex + 1]);
 
-            string dialogueText = arguments[1];
-            dialogueManager.SetContent(dialogueText);
+            _nameIndex += 2;
+        }
+
+        private void DisplayName(string characterName)
+        {
+            dialogueManager.SetName(characterName);
+        }
+
+        private void AnimateDialogueText(string dialogueText)
+        {
+            _dialogueIsFinished = false;
+            dialogueManager.AnimateContent(dialogueText);
+        }
+
+        // TODO: called OnMBL
+        public void HandleMouseClick()
+        {
+            if (_dialogueIsFinished) DisplayNextDialoguePart();
+            else dialogueManager.SkipTyping();
+        }
+
+        private void SetFinishedToTrue()
+        {
+            _dialogueIsFinished = true;
         }
 
 
+        private void ResetDialogue()
+        {
+            dialogueManager.HidePanel();
+            _nameIndex = 0;
+        }
+        
         private void InformTimelineToGoOn()
         {
             timelineParser.ParseNextLine();
+        }
+        
+        private void OnDisable()
+        {
+            dialogueManager.OnFinishedTyping -= SetFinishedToTrue;
         }
     }
 }

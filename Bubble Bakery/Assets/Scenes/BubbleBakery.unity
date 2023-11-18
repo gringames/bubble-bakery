@@ -2035,7 +2035,7 @@ MonoBehaviour:
   dialoguePanel: {fileID: 1818380214}
   dialogueName: {fileID: 121681570}
   dialogueText: {fileID: 661248641}
-  scrollSpeed: 1
+  timeBetweenLetters: 0.05
 --- !u!1 &2124230369
 GameObject:
   m_ObjectHideFlags: 0
