@@ -5,24 +5,20 @@ namespace Timeline
 {
     public class TimelineParser : MonoBehaviour
     {
-        
-        [Header("Actions")]
-        [SerializeField] private EnterAction enterAction;
-        [SerializeField] private ExitAction exitAction;
+        [Header("Actions")] [SerializeField] private MoveAction moveAction;
         [SerializeField] private OrderAction orderAction;
         [SerializeField] private TalkAction talkAction;
-        
-        [Header("File")]
-        [SerializeField] private TextAsset timelineFile;
+
+        [Header("File")] [SerializeField] private TextAsset timelineFile;
         [SerializeField] private string commentCharacter = "#";
         private string[] _lines;
 
         // ACTIONS
-        private const string ENTER = "ENTER"; 
-        private const string TALK = "TALK"; 
-        private const string EXIT = "EXIT"; 
-        private const string ORDER = "ORDER"; 
-        
+        private const string ENTER = "ENTER";
+        private const string TALK = "TALK";
+        private const string EXIT = "EXIT";
+        private const string ORDER = "ORDER";
+
         // OBJECTS
 
 
@@ -36,10 +32,10 @@ namespace Timeline
         {
             _lines = SplitTextAtNewLine(timelineFile.text);
         }
-    
+
         private static string[] SplitTextAtNewLine(string text)
         {
-            return text.Split(new[] {Environment.NewLine}, 
+            return text.Split(new[] {Environment.NewLine},
                 StringSplitOptions.RemoveEmptyEntries);
         }
 
@@ -48,10 +44,10 @@ namespace Timeline
             foreach (var line in _lines)
             {
                 Debug.Log("current line = " + line);
-            
+
                 // skip line if it is a comment
                 if (line.StartsWith(commentCharacter)) continue;
-            
+
                 HandleLine(line);
             }
         }
@@ -62,14 +58,16 @@ namespace Timeline
 
             var action = contents[0];
             var arguments = GetArguments(contents);
-                
+
             switch (action)
             {
-                case ENTER: 
-                    enterAction.Handle(arguments);
+                case ENTER:
+                    arguments = AddTypeToMoveActionArguments(arguments, true);
+                    moveAction.Handle(arguments);
                     break;
                 case EXIT:
-                    exitAction.Handle(arguments);
+                    arguments = AddTypeToMoveActionArguments(arguments, false);
+                    moveAction.Handle(arguments);
                     break;
                 case ORDER:
                     orderAction.Handle(arguments);
@@ -84,13 +82,28 @@ namespace Timeline
         {
             string[] rest = new string[contents.Length - 1];
             if (rest.Length == 0) return rest;
-            
+
             for (int i = 1; i < contents.Length; i++)
             {
                 rest[i - 1] = contents[i];
             }
 
             return rest;
+        }
+
+        private static string[] AddTypeToMoveActionArguments(string[] originalArguments, bool isEnter)
+        {
+            int originalLength = originalArguments.Length;
+
+            string[] newArguments = new string[originalLength + 1];
+
+            string type = isEnter
+                ? MoveAction.MoveIN
+                : MoveAction.MoveOUT;
+
+            newArguments[originalLength] = type;
+
+            return newArguments;
         }
     }
 }

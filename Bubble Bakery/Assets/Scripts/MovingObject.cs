@@ -3,20 +3,17 @@ using UnityEngine;
 
 public class MovingObject : MonoBehaviour
 {
-    [Header("Points")] [SerializeField] private Transform entryPoint;
-    [SerializeField] private Transform targetPoint;
-    [SerializeField] private Transform exitPoint;
 
     [Header("Properties")] [SerializeField]
     private float speed = 0.1f;
 
-    public void Enter()
+    public void Enter(Transform entryPoint, Transform targetPoint)
     {
         transform.position = entryPoint.position;
         StartCoroutine(nameof(MoveTo), targetPoint);
     }
     
-    public void Exit()
+    public void Exit(Transform exitPoint)
     {
         StartCoroutine(nameof(MoveTo), exitPoint);
     }

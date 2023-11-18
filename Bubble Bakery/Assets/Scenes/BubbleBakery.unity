@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 28893835}
   - component: {fileID: 28893836}
   m_Layer: 0
-  m_Name: EnterAction
+  m_Name: MoveAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,6 +171,9 @@ MonoBehaviour:
   shark: {fileID: 506827351}
   cthullu: {fileID: 1630913245}
   mereperson: {fileID: 502231805}
+  entryPoint: {fileID: 1427085162}
+  targetPoint: {fileID: 1722409064}
+  exitPoint: {fileID: 1020728223}
 --- !u!1 &185337387
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +270,7 @@ RectTransform:
   m_Children:
   - {fileID: 1818380215}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -303,7 +306,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &339385669
 GameObject:
@@ -419,9 +422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950a65dcc40efea478968d02c1ce8a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entryPoint: {fileID: 1427085162}
-  targetPoint: {fileID: 1722409064}
-  exitPoint: {fileID: 1020728223}
   speed: 0.1
 --- !u!212 &478366957
 SpriteRenderer:
@@ -483,7 +483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478366955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.24, y: 1.3, z: 0}
+  m_LocalPosition: {x: -22.74, y: 1.3, z: 0}
   m_LocalScale: {x: 2.4804769, y: 6.356222, z: 2.4804769}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -551,9 +551,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950a65dcc40efea478968d02c1ce8a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entryPoint: {fileID: 1427085162}
-  targetPoint: {fileID: 1722409064}
-  exitPoint: {fileID: 1020728223}
   speed: 0.1
 --- !u!212 &502231806
 SpriteRenderer:
@@ -615,7 +612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502231804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.24, y: 1.3, z: 0}
+  m_LocalPosition: {x: -22.74, y: 1.3, z: 0}
   m_LocalScale: {x: 2.4804769, y: 6.356222, z: 2.4804769}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -652,9 +649,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950a65dcc40efea478968d02c1ce8a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entryPoint: {fileID: 1427085162}
-  targetPoint: {fileID: 1722409064}
-  exitPoint: {fileID: 1020728223}
   speed: 0.1
 --- !u!212 &506827352
 SpriteRenderer:
@@ -716,7 +710,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506827350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.24, y: 1.3, z: 0}
+  m_LocalPosition: {x: -22.74, y: 1.3, z: 0}
   m_LocalScale: {x: 2.4804769, y: 6.356222, z: 2.4804769}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -856,7 +850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1020728223}
   m_Layer: 0
-  m_Name: Exit Point
+  m_Name: LeftPoint
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -870,7 +864,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020728222}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.4, y: -1.97, z: -0.03307998}
+  m_LocalPosition: {x: -22.9, y: -1.97, z: -0.03307998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -983,56 +977,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ba36b3e7fe423882f9ae64b4b8159c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enterAction: {fileID: 28893836}
-  exitAction: {fileID: 1332220140}
+  moveAction: {fileID: 28893836}
   orderAction: {fileID: 1602508181}
   talkAction: {fileID: 1677659551}
+  timeBetweenActions: 1
   timelineFile: {fileID: 4900000, guid: 8be7edb24dec81c4fbaad157c8543688, type: 3}
   commentCharacter: '#'
---- !u!1 &1332220138
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1332220139}
-  - component: {fileID: 1332220140}
-  m_Layer: 0
-  m_Name: ExitAction
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &1332220139
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332220138}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3677899, y: 0.14681454, z: 0.08645935}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 22
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1332220140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332220138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5395b13993d149ca9ca1b88823d502b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1427085161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,7 +993,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1427085162}
   m_Layer: 0
-  m_Name: EntryPoint
+  m_Name: RightPoint
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1130,7 +1080,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1473992223
 GameObject:
@@ -1308,7 +1258,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1602508181
 MonoBehaviour:
@@ -1352,9 +1302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950a65dcc40efea478968d02c1ce8a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entryPoint: {fileID: 1427085162}
-  targetPoint: {fileID: 1722409064}
-  exitPoint: {fileID: 1020728223}
   speed: 0.1
 --- !u!212 &1630913246
 SpriteRenderer:
@@ -1398,7 +1345,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.30015132, g: 0.8962264, b: 0.31125465, a: 1}
+  m_Color: {r: 0.30196083, g: 0.8980392, b: 0.86791825, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1416,7 +1363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630913244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.24, y: 1.3, z: 0}
+  m_LocalPosition: {x: -22.74, y: 1.3, z: 0}
   m_LocalScale: {x: 2.4804769, y: 6.356222, z: 2.4804769}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1484,7 +1431,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1677659551
 MonoBehaviour:
@@ -1508,7 +1455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1722409064}
   m_Layer: 0
-  m_Name: CounterTargetPointMain
+  m_Name: CounterMiddlePoint
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1558,7 +1505,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1818380214
 GameObject:
@@ -1733,9 +1680,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950a65dcc40efea478968d02c1ce8a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entryPoint: {fileID: 1427085162}
-  targetPoint: {fileID: 1722409064}
-  exitPoint: {fileID: 1020728223}
   speed: 0.1
 --- !u!1 &1882176309
 GameObject:
