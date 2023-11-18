@@ -19,20 +19,18 @@ namespace Timeline
                 return;
             }
 
-            for (int i = 0; i < arguments.Length; i += 2)
-            {
-                Debug.Log(arguments[i] + ": " + arguments[i + 1]);
-            }
-
             dialogueManager.ShowPanel();
+            DisplayFirstDialoguePart(arguments);
+            // TODO: listen to mouse click and traverse dialogue
+        }
 
+        private void DisplayFirstDialoguePart(string[] arguments)
+        {
             string characterName = arguments[0];
             dialogueManager.SetName(characterName);
 
             string dialogueText = arguments[1];
             dialogueManager.SetContent(dialogueText);
-
-            // dialogueManager.HidePanel();
         }
 
 
