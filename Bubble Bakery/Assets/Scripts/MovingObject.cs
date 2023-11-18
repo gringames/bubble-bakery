@@ -9,14 +9,13 @@ public class MovingObject : MonoBehaviour
     [Header("Properties")] [SerializeField]
     private float speed = 0.1f;
 
-    private void Start()
+    private void Awake()
     {
         transform.position = entryPoint.position;
-        MoveToTarget();
     }
 
 
-    private void MoveToTarget()
+    public void Enter()
     {
         StartCoroutine(nameof(MoveToTargetPoint));
     }
