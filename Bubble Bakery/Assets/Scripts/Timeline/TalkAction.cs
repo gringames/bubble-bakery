@@ -10,5 +10,10 @@ namespace Timeline
         {
             throw new System.NotImplementedException();
         }
+               
+        private void InformTimelineToGoOn()
+        {
+            timelineParser.ParseNextLine();
+        }
     }
 }

@@ -50,16 +50,23 @@ namespace Timeline
                 return;
                 // TODO: display end scene
             }
-            
+
             var line = _lines[_lineIndex];
             _lineIndex++;
 
             Debug.Log("current line = " + line);
 
             // skip line if it is a comment
-            if (line.StartsWith(commentCharacter)) ParseNextLine();
+            if (SkipLine(line)) ParseNextLine();
 
             HandleLine(line);
+        }
+
+        private bool SkipLine(string line)
+        {
+            return line.StartsWith(commentCharacter)
+                   || line.StartsWith(" ")
+                   || line.Length == 0;
         }
 
         private void HandleLine(string line)
