@@ -102,6 +102,8 @@ EXIT§cthullu§s1§s2§s3§s4
 
 ENTER§don
 
+# dialogue (again first line missing somehow)
+TALK§Don§Ho-oh-oh. 
 TALK§Don§Ho-oh-oh. 
 TALK§Don§Sorry, that wasn’t a Santawalrus impression, I was just coughing.
 TALK§You§Hello, Don. Enjoying Christmas?
