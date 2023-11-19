@@ -20,6 +20,7 @@ namespace Timeline
         private const string TALK = "TALK";
         private const string EXIT = "EXIT";
         private const string ORDER = "ORDER";
+        private const string STOP = "STOP";
 
         // PARSING
         private int _lineIndex = 0;
@@ -30,7 +31,7 @@ namespace Timeline
         {
             InitializeTimeline();
 
-            if (_lines[0] == "STOP") return;
+            if (_lines[0] == STOP) return;
 
             ParseNextLine();
         }
@@ -84,26 +85,18 @@ namespace Timeline
             string[] contents = line.Split(splitCharacter);
 
             var action = contents[0];
+            if (action == STOP) return;
+            
             var arguments = GetArguments(contents);
-
-            Debug.Log($"action: {action}");
-            string a = "";
-            foreach (var arg in arguments)
-            {
-                a += arg + ", ";
-            }
-
-            Debug.Log($"with arguments: {a}");
-
+            
+            
             switch (action)
             {
                 case ENTER:
-                    Debug.Log("case enter");
                     arguments = AddTypeToMoveActionArguments(arguments, true);
                     moveAction.Handle(arguments);
                     break;
                 case EXIT:
-                    Debug.Log("case exit");
                     arguments = AddTypeToMoveActionArguments(arguments, false);
                     moveAction.Handle(arguments);
                     break;
@@ -112,7 +105,6 @@ namespace Timeline
                     orderAction.Handle(arguments);
                     break;
                 case TALK:
-                    Debug.Log("case talk");
                     arguments = ConvertAllTalkLinesToArguments(arguments);
                     talkAction.Handle(arguments);
                     break;
