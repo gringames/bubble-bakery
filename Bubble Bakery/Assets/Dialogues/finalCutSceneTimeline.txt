@@ -1,1 +1,30 @@
 # only talks here
+
+TALK§Seahorseº3§Look, daddy! Santawalrus is giving cookies away!
+TALK§Don§Ho-ho-ho! Happy Christmas!
+TALK§Seahorseº2§Can I have a shell-shaped one, please?
+TALK§You§Here you have!
+TALK§Coral§Oooh I like the ones that look like tiny fish!
+TALK§Cthuhlu§Ph’nglui mglw’nafh Cthulhu R’lyeh wgah’nagl fhtagn.
+TALK§You§(Oops, I left the translator in the bakery.) 
+TALK§Don§Who wants to taste these delicious cookies? The baker made them for all of us!
+TALK§Townie§They are as appetizing as always, baker.
+TALK§You§I’m so glad you enjoy them.
+TALK§Coral§Yeah, I was so sad when I heard you had to close the bakery.
+TALK§Townie§It would be sad… if it really had to close.
+TALK§You§Ha, ha, yeah. Sorry for bringing this up to you guys, but Fishy Business Inc. has bought the bakery.
+TALK§Townie§No, they haven’t. Someone paid your debt first.
+TALK§You§Wait, what!?
+TALK§Cthulhu§Y’ai ng’ngah, Yog-Sothoth h’ee- I’greb f’ai throdog uaaah.
+TALK§Townie§Cithulei is right. We didn’t want the bakery to be turned into some crappy fast food restaurant. So the town raised the money and paid for it.
+TALK§You§You… you guys did that for me?
+TALK§Seahorses§We want to have cookies everyday!
+TALK§Coral§I would totally die without your bubble icing!
+TALK§Chthulu§Ph’nglui mglw’nafh Cthugha Fomalhaut n’gha-ghaa naf’Ithagn.
+TALK§You§I… I can’t believe it. I am so greatful.
+TALK§Don§Ah, so I was wrong about wanting to lose faith, then.
+TALK§Don§I guess magic does exist, after all.
+TALK§You§Don...
+TALK§Don§Happy Christmas, baker.
+
+# The end.

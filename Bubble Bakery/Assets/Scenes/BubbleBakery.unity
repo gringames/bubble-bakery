@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba02c3c61c2d87d4ba8613e7db3f5a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 2
+  sceneIndex: 3
 --- !u!1 &121681568
 GameObject:
   m_ObjectHideFlags: 0
@@ -3092,6 +3092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ba36b3e7fe423882f9ae64b4b8159c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextSceneIndex: 2
   moveAction: {fileID: 28893836}
   orderAction: {fileID: 1602508181}
   talkAction: {fileID: 1677659551}
