@@ -22,10 +22,10 @@ namespace Orders
 
         public void InitializeOrder(Order order, int amount)
         {
-            Debug.Log($"order init");
-
             _order = order;
             _amount = amount;
+            
+            Debug.Log($"order is {amount}x {order}");
 
             _boxCollider2D.enabled = true;
         }

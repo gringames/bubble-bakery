@@ -36,7 +36,6 @@ namespace Timeline
                 return;
             }
             
-            Debug.Log("starting order.");
 
             string characterName = arguments[0];
             OrderManager orderManager = GetOrderManagerToName(characterName);
@@ -44,10 +43,8 @@ namespace Timeline
 
             Order order = SelectRandomOrder();
             int amount = SelectRandomAmount();
-            Debug.Log($"order: {order} x{amount}");
 
             DisplayThoughtBubble(order, amount);
-            Debug.Log($"displaying thought bubble");
 
             orderManager.InitializeOrder(order, amount);
         }
@@ -80,10 +77,10 @@ namespace Timeline
             amountText.text = AmountX + amount;
 
             GameObject sprite = GetSpriteToOrder(order);
+            
+            thoughtBubble.SetActive(true);
             sprite.SetActive(true);
             amountText.gameObject.SetActive(true);
-
-            thoughtBubble.SetActive(true);
         }
 
         private GameObject GetSpriteToOrder(Order order)

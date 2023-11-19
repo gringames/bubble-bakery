@@ -100,7 +100,6 @@ namespace Timeline
                     moveAction.Handle(arguments);
                     break;
                 case ORDER:
-                    Debug.Log("case order");
                     orderAction.Handle(arguments);
                     break;
                 case TALK:
