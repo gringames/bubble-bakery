@@ -29,6 +29,9 @@ namespace Timeline
         private void Awake()
         {
             InitializeTimeline();
+
+            if (_lines[0] == "STOP") return;
+
             ParseNextLine();
         }
 
@@ -82,13 +85,14 @@ namespace Timeline
 
             var action = contents[0];
             var arguments = GetArguments(contents);
-            
+
             Debug.Log($"action: {action}");
             string a = "";
             foreach (var arg in arguments)
             {
                 a += arg + ", ";
             }
+
             Debug.Log($"with arguments: {a}");
 
             switch (action)
@@ -174,7 +178,7 @@ namespace Timeline
                 _lineIndex++;
                 line = _lines[_lineIndex];
             }
-            
+
             Debug.Log($"talk lines were added. Line index is now: {_lineIndex}");
 
 
