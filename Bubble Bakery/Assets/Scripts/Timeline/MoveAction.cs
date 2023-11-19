@@ -5,7 +5,7 @@ namespace Timeline
     public class MoveAction : MonoBehaviour, IAction
     {
         [Header("Timeline")] [SerializeField] private TimelineParser timelineParser;
-        
+
         [Header("Characters")] [SerializeField]
         private MovingObject walrus;
 
@@ -44,6 +44,7 @@ namespace Timeline
 
             _currentCharacter = character;
             _currentCharacter.OnFinishedMoving += InformTimelineToGoOn;
+            Debug.Log($"subscribed to move event of {_currentCharacter}");
 
             string type = arguments[1];
             if (type == MoveIn)
@@ -68,8 +69,9 @@ namespace Timeline
 
         private void InformTimelineToGoOn()
         {
-            timelineParser.ParseNextLine();
             _currentCharacter.OnFinishedMoving -= InformTimelineToGoOn;
+            Debug.Log("parser, go on pls");
+            timelineParser.ParseNextLine();
         }
     }
 }

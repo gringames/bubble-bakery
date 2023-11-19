@@ -10,22 +10,22 @@ namespace Input
         [Header("Logic Objects")] [SerializeField]
         private TalkAction talkAction;
 
-        private PlayerInput _playerInput;
+        [SerializeField] private PlayerInput playerInput;
 
         private void Awake()
         {
-            _playerInput = GetComponent<PlayerInput>();
-            _playerInput.SwitchCurrentActionMap("Default");
+            playerInput.SwitchCurrentActionMap("Default");
         }
 
         public void ChangeInputMapTo(string map)
         {
-            _playerInput.SwitchCurrentActionMap(map);
+            playerInput.SwitchCurrentActionMap(map);
         }
         
         
         private void OnClick()
         {
+            Debug.Log("Click");
             talkAction.HandleMouseClick();
         }
     }

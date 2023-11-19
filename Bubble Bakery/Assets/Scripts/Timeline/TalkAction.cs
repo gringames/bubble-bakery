@@ -25,6 +25,7 @@ namespace Timeline
 
         public void Handle(string[] arguments)
         {
+            Debug.Log("entered dialogue handling");
             if (arguments.Length % 2 != 0)
             {
                 Debug.LogError("wrong number of arguments for TALK action! Must be even.");
@@ -98,6 +99,7 @@ namespace Timeline
         
         private void InformTimelineToGoOn()
         {
+            Debug.Log("parser, go on pls");
             timelineParser.ParseNextLine();
         }
         
