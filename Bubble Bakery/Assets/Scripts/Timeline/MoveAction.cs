@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Timeline
 {
@@ -10,10 +12,14 @@ namespace Timeline
         private MovingObject walrus;
 
         [SerializeField] private MovingObject jean;
+        [SerializeField] private MovingObject coral;
         [SerializeField] private MovingObject cthullu;
         [SerializeField] private MovingObject cthullusChildren;
         [SerializeField] private MovingObject cthulluAndChildren;
-        [SerializeField] private MovingObject coral;
+        [SerializeField] private MovingObject seaHorse1;
+        [SerializeField] private MovingObject seaHorse2;
+        [SerializeField] private MovingObject seaHorse3;
+        [SerializeField] private MovingObject seaHorse4;
 
         [Header("Points")] [SerializeField] private Transform entryPoint;
         [SerializeField] private Transform targetPoint;
@@ -39,18 +45,26 @@ namespace Timeline
                 return;
             }
 
-            string characterName = arguments[0].ToLower();
-            var character = GetCharacterToName(characterName);
+            int typeIndex = 0;
+            var characters = new List<MovingObject>();
 
-            _currentCharacter = character;
+
+            for (int i = 0; i < arguments.Length - 1; i++)
+            {
+                string characterName = arguments[i].ToLower();
+                var character = GetCharacterToName(characterName);
+                characters.Add(character);
+
+                typeIndex++;
+            }
+
+            // only subscribe to one (first) character
+            _currentCharacter = characters[0];
             _currentCharacter.OnFinishedMoving += InformTimelineToGoOn;
-            Debug.Log($"subscribed to move event of {_currentCharacter}");
 
-            string type = arguments[1];
-            if (type == MoveIn)
-                character.Enter(entryPoint, targetPoint);
-            else
-                character.Exit(exitPoint);
+            string type = arguments[typeIndex];
+
+            MoveAll(characters, type);
         }
 
         private MovingObject GetCharacterToName(string characterName)
@@ -63,8 +77,32 @@ namespace Timeline
                 "cthulluschildren" => cthullusChildren,
                 "coral" => coral,
                 "jean" => jean,
+                "s1" => seaHorse1,
+                "s2" => seaHorse2,
+                "s3" => seaHorse3,
+                "s4" => seaHorse4,
                 _ => null
             };
+        }
+
+        private void MoveAll(List<MovingObject> characters, string type)
+        {
+            if (type == MoveIn)
+            {
+                foreach (var character in characters)
+                {
+                    character.Enter(entryPoint, targetPoint);
+                }
+            }
+            else
+            {
+                foreach (var character in characters)
+                {
+                    character.Exit(exitPoint);
+                }
+            }
+
+
         }
 
         private void InformTimelineToGoOn()
