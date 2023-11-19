@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 478366957}
   - component: {fileID: 478366956}
   m_Layer: 0
-  m_Name: Santa Claus Walrus
+  m_Name: Don
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

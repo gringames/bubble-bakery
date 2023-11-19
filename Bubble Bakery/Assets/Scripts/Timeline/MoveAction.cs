@@ -57,7 +57,7 @@ namespace Timeline
         {
             return characterName switch
             {
-                "walrus" => walrus,
+                "don" => walrus,
                 "cthullu" => cthullu,
                 "cthulluandchildren" => cthulluAndChildren,
                 "cthulluschildren" => cthullusChildren,
