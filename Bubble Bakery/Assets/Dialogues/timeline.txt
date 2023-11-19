@@ -1,5 +1,139 @@
-# ENTER cthullu
-# EXIT cthullu
+### JEAN
 
+ENTER§jean
 
-ENTER CthUllu
+# Dialogue with Jean
+TALK§Stranger§Oh, you’re open. I thought this bakery was getting closed yesterday. 
+TALK§You§It’s Christmas Eve. It didn’t feel right to leave the townspeople without their cakes and muffins today.
+TALK§Stranger§Celebrating Christmas is such a stupid idea. So much time wasted that could’ve been spent building successful businesses.
+#TALK§Stranger§Anyway, my name’s Jean. I work for Fishy Business Inc., the corporation that is going to pay your debt.
+#TALK§You§You mean, the company that is going to buy my shop
+#TALK§Jean§Well, honey, small businesses never last long. 20% of them fail during the first two years. 45% don’t even last five. And 65% close in the first 10.
+#TALK§Jean§The fiasco of your bakery was just a matter of time. You’re incredibly lucky that we are willing to pay you for it. And you’re also welcome.
+#TALK§You§I know I have a big debt, but I could’ve payed it with a little more time!
+#TALK§Jean§Could you? Let’s see. You called your business ‘Bubble Bakery’ because you serve some kind of bubble icing. Come on, anyone can make bubbles, why are yours so special?
+#TALK§You§Well, they-
+#TALK§Jean§Bubbles as a theme is, uh… un unwise business plan, I’d say.
+#TALK§Jean§But don’t feel bad, not everyone is creative enough for these things.
+#TALK§You§And what is it that you’ll build here that is such a good business plan?
+#TALK§Jean§A new Burgerfins! The fast-food chain with 49 restaurants all across the seven seas that is making billions of sandollars.
+#TALK§Jean§People love it because they don’t have to ask where the fish we serve come from. And everyone is tired of all that ‘eco-friendly’, ‘buy local’ headache.
+#TALK§Jean§Burgerfins! Don’t eat moral, eat fast.
+#TALK§You§Ah, so my bakery is being turned into a predatory business. That’s great.
+#TALK§Jean§That’s what happens when you’re last in the food chain, honey. And I guess you could say that I am a finance shark. Ha!
+#TALK§You§…
+#TALK§You§Do you want a bubble muffin before you leave?
+#TALK§Jean§Of course not. You somehow manage to turn the salty water around this bakery into sugary one. It’s incredible. And also revolting.
+#TALK§Jean§I’ll be on my way now. You’ll receive the payment from Fishy Business Inc. tonight. I hope you invest it in a… better way this time.
+
+EXIT§jean
+
+### CORAL
+
+ENTER§coral
+
+# Dialogue with Coral
+TALK§Coral§Oh my gosh you are open! You just saved my day!
+TALK§You§Hi Coral. How are you?
+TALK§Coral§Ahh… I am totally exhausted. I really need a sugar rush right now!
+TALK§You§What have you been up to?
+TALK§Coral§Oh, just some early morning pirate-hunting. Those guys fought reaaaaally hard not to get drowned and torn into pieces!
+TALK§You§No wonder you’re drained. May I suggest a ‘Life buoy donut’? They are the perfect fit to get a quick energy boost.
+TALK§Coral§Oh, yes please! I love how you decorate them. Giggles. They remind me of my times chasing down cruise ships.
+# bake the donut
+TALK§You§Here you go, a freshly baked ‘Life buoy donut’.
+TALK§Coral§You are my saviour! My people disapprove of my love for chocolate and glace icing, you know.
+TALK§Coral§They don’t understand eating if you haven’t lured your food into a horrible death first. Sighs
+TALK§You§Yeah, you’re the only merepeople customer I have.
+TALK§Coral§Right? I like having sweet things from time to time. Drinking earthlings’ blood and devouring their flesh can get boring sometimes.
+TALK§You§Totally understandable.
+TALK§Coral§Anyway, thank you for the donut! And have a happy Christmas!
+TALK§You§You too, Coral!
+
+EXIT§coral
+
+### CTHULLU
+
+ENTER§cthullu
+
+# Dialogue with Cthullu (first line is skipped somehow)
+TALK§You§(Oh. A cryptid.)
+TALK§You§(Oh. A cryptid.)
+TALK§Cthulhu§Ya na kadishtu nilgh’ri stell’bsna Nyogtha. K’yarnak phlegethor l’eubmna syha’h n’ghft.
+TALK§You§Em, er… Just give me one second, please.
+TALK§You§(Ok, Ok. Relax. Acting scared may be diserspectful.)
+TALK§You§(Luckily, one of the reasons I have a huge debt is because I bought a cryptid translator to be diversity-friendly!)
+TALK§Cthullu§Ya hai kadishtu ep r’luh-eeh Nyogtha eeh, s’uhn-ngh athg li’hee arr’e syha’h.
+TALK§You§Where did I put it…? Oh, yeah, here! Beep Ok! I can understand you now!
+TALK§Cthullu§Oh, good mornin’. I was just commentin’ how nice yer bakery looks. The sugar taste in the water is delightful, too.
+TALK§You§You were? I mean, thank you so much, sir. I thought your kind disliked glucose.
+TALK§Cthullu§I didn’ use to eat cookies when I was workin’. I left my job, though. I got tired of imaginin’ new nightmares for the earthlings.
+TALK§Cthullu§Ye won’t believe the crazy ideas those earthlanders come up with on their own. ‘Twas hard to keep it up, ye know?
+TALK§You§It had to be difficult.
+TALK§Cthullu§Yeah. And I didn’t even like it. So I left tryin’ to find a cultist prone to announce my comin’ and decided to become a dad!
+TALK§You§A… dad?
+
+ENTER§cthulluschildren
+
+TALK§Seahorse nº1§Hey Cuthuly! Can we have some muffins?!
+TALK§Seahorse nº2§Cathulluu, I want a cookie!
+TALK§Cthullu§Ye guys already have sweet-weed at home.
+TALK§Seahorse nº3§But we’re at the bakery! We cannot leave without something, Chullwy! And it’s Christmas!
+TALK§Cthullu§Aight, we’ll take some of those bubble muffin’ of yer.
+TALK§Seahorse nº4§Yay! You’re the best daddy Cihulluw!
+TALK§You§Five Bubble icing kelp muffins coming up!
+
+# The player bakes the muffins
+
+TALK§You§Here you go!
+TALK§Seahorses§Yaaaaay Bubble muffins!
+TALK§Seahorse nº3§It’s so fun when the icing pops!
+TALK§Seahorse nº1§We love you, Cuhuloo!
+TALK§Cthullu§Ahh, raisin’ four pollywogs like mine ain’t easy, but I wouldn’t change ‘em for nothing in the seven seas.
+TALK§Cthullu§And ama proud ‘Best Dad in the Ocean’ mug-holder now.
+TALK§You§That is so sweet. I hope you have a happy Christmas.
+TALK§Cthullu§Thank ye. Ye too. What do we say to the baker?
+TALK§Seahorses§Thank you for the muffins, baker!
+
+EXIT§cthullu
+EXIT§cthulluschildren
+
+### DON
+
+ENTER§don
+
+TALK§Don§Ho-oh-oh. 
+TALK§Don§Sorry, that wasn’t a Santawalrus impression, I was just coughing.
+TALK§You§Hello, Don. Enjoying Christmas?
+TALK§Don§Nah, I don’t really like festivities. Adults shouldn’t care too much for these things.
+TALK§You§And why is that? I think there is some magic in celebrating these events.
+TALK§Don§It just… doesn’t feel the same.
+TALK§You§Yet you’re dressing up as Santawalrus.
+TALK§Don§That’s because they pay well. And because of the kids. They love these stupid activities.
+TALK§Don§I remember when I was a youngling who believed in Santawalrus. I miss having that blind faith in the world.
+TALK§You§You can still have it as an adult.
+TALK§Don§How can you say that when they are forcing you to close the bakery?
+TALK§You§... You may be right.
+TALK§Don§Sorry, I didn’t mean to be rude.
+TALK§Don§But you have no idea of how much these bubbles tickle. They make me be more ill-mannered than usual.
+TALK§You§Ha, ha, ha, right. Don’t worry. Are you here to grab your daily salty coffee?
+TALK§Don§I actually came to order a batch of cookies. I want to give them away in the town square.
+TALK§You§Aw, you do have a sweet heart under your grumpy façade!
+TALK§Don§When you say it like that it sounds awful.
+TALK§You§No, it doesn’t! Give me a moment and I’ll have your cookies ready.
+
+# The player bakes the cookies.
+
+TALK§You§Do you think these will be enough?
+TALK§Don§You made a lot of them, yes. Thank you.
+TALK§You§You’re welcome! And, by the way, they are free.
+TALK§Don§Don’t be stupid. You need the money.
+TALK§You§Nah, not anymore. Some company shark is giving me tons of it tonight. I’ll be fine.
+TALK§You§But, hey, Don, I kind of need something to cheer myself up today. Do you mind if I accompany you to give those cookies away?
+TALK§Don§I will be very happy to have you in. Are you sure you’re fine?
+TALK§You§I am. I just need to feel the Christmas joy a little bit.
+TALK§Don§Alright. Let’s take the cookies to the town square, then.
+
+# Don and the player leave the bakery.
+
+EXIT§don

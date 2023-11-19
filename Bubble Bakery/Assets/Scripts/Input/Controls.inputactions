@@ -1,0 +1,79 @@
+{
+    "name": "Controls",
+    "maps": [
+        {
+            "name": "Default",
+            "id": "65336c1d-a846-449d-8e20-132339323b9e",
+            "actions": [],
+            "bindings": []
+        },
+        {
+            "name": "Dialogue",
+            "id": "84fbd6f2-5d08-4a1e-88e9-7ba6c4870f25",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "450a9a3b-e625-4254-ac70-2223403fceb1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cd666696-78d6-4dae-a60c-9ac7659c2a17",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5bdedd21-897d-4ce6-9ec7-7546e58ff0e6",
+                    "path": "<VirtualMouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Cooking",
+            "id": "453072eb-c2f2-4022-8207-aebf731ce354",
+            "actions": [
+                {
+                    "name": "tbd",
+                    "type": "Button",
+                    "id": "b24cf687-e61b-4781-b6d5-98c170c38840",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "822af4ac-a486-4b10-9d3c-adcb937f2f72",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "tbd",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
