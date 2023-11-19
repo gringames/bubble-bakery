@@ -1,3 +1,8 @@
+ENTER§cthullu
+ENTER§s1§s2§s3§s4
+
+TALK$s$s
+
 ### JEAN
 
 ENTER§jean
@@ -73,7 +78,7 @@ TALK§You§It had to be difficult.
 TALK§Cthullu§Yeah. And I didn’t even like it. So I left tryin’ to find a cultist prone to announce my comin’ and decided to become a dad!
 TALK§You§A… dad?
 
-ENTER§cthulluschildren
+ENTER§s1§s2§s3§s4
 
 TALK§Seahorse nº1§Hey Cuthuly! Can we have some muffins?!
 TALK§Seahorse nº2§Cathulluu, I want a cookie!
@@ -95,8 +100,7 @@ TALK§You§That is so sweet. I hope you have a happy Christmas.
 TALK§Cthullu§Thank ye. Ye too. What do we say to the baker?
 TALK§Seahorses§Thank you for the muffins, baker!
 
-EXIT§cthullu
-EXIT§cthulluschildren
+EXIT§cthullu§s1§s2§s3§s4
 
 ### DON
 
@@ -137,3 +141,5 @@ TALK§Don§Alright. Let’s take the cookies to the town square, then.
 # Don and the player leave the bakery.
 
 EXIT§don
+
+# black fade
