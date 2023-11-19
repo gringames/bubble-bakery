@@ -31,7 +31,6 @@ EXIT§jean
 ### CORAL
 
 ENTER§coral
-ENTER§cthullu
 
 # Dialogue with Coral
 TALK§Coral§Oh my gosh you are open! You just saved my day!

@@ -24,6 +24,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     ""name"": ""Controls"",
     ""maps"": [
         {
+            ""name"": ""Default"",
+            ""id"": ""65336c1d-a846-449d-8e20-132339323b9e"",
+            ""actions"": [],
+            ""bindings"": []
+        },
+        {
             ""name"": ""Dialogue"",
             ""id"": ""84fbd6f2-5d08-4a1e-88e9-7ba6c4870f25"",
             ""actions"": [
@@ -67,7 +73,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             ""id"": ""453072eb-c2f2-4022-8207-aebf731ce354"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""tbd"",
                     ""type"": ""Button"",
                     ""id"": ""b24cf687-e61b-4781-b6d5-98c170c38840"",
                     ""expectedControlType"": ""Button"",
@@ -84,7 +90,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""tbd"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -93,12 +99,14 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
+        // Default
+        m_Default = asset.FindActionMap("Default", throwIfNotFound: true);
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_Click = m_Dialogue.FindAction("Click", throwIfNotFound: true);
         // Cooking
         m_Cooking = asset.FindActionMap("Cooking", throwIfNotFound: true);
-        m_Cooking_Newaction = m_Cooking.FindAction("New action", throwIfNotFound: true);
+        m_Cooking_tbd = m_Cooking.FindAction("tbd", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -157,6 +165,44 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
+    // Default
+    private readonly InputActionMap m_Default;
+    private List<IDefaultActions> m_DefaultActionsCallbackInterfaces = new List<IDefaultActions>();
+    public struct DefaultActions
+    {
+        private @Controls m_Wrapper;
+        public DefaultActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputActionMap Get() { return m_Wrapper.m_Default; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DefaultActions set) { return set.Get(); }
+        public void AddCallbacks(IDefaultActions instance)
+        {
+            if (instance == null || m_Wrapper.m_DefaultActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DefaultActionsCallbackInterfaces.Add(instance);
+        }
+
+        private void UnregisterCallbacks(IDefaultActions instance)
+        {
+        }
+
+        public void RemoveCallbacks(IDefaultActions instance)
+        {
+            if (m_Wrapper.m_DefaultActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IDefaultActions instance)
+        {
+            foreach (var item in m_Wrapper.m_DefaultActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_DefaultActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public DefaultActions @Default => new DefaultActions(this);
+
     // Dialogue
     private readonly InputActionMap m_Dialogue;
     private List<IDialogueActions> m_DialogueActionsCallbackInterfaces = new List<IDialogueActions>();
@@ -206,12 +252,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     // Cooking
     private readonly InputActionMap m_Cooking;
     private List<ICookingActions> m_CookingActionsCallbackInterfaces = new List<ICookingActions>();
-    private readonly InputAction m_Cooking_Newaction;
+    private readonly InputAction m_Cooking_tbd;
     public struct CookingActions
     {
         private @Controls m_Wrapper;
         public CookingActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Cooking_Newaction;
+        public InputAction @tbd => m_Wrapper.m_Cooking_tbd;
         public InputActionMap Get() { return m_Wrapper.m_Cooking; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -221,16 +267,16 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_CookingActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_CookingActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
+            @tbd.started += instance.OnTbd;
+            @tbd.performed += instance.OnTbd;
+            @tbd.canceled += instance.OnTbd;
         }
 
         private void UnregisterCallbacks(ICookingActions instance)
         {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
+            @tbd.started -= instance.OnTbd;
+            @tbd.performed -= instance.OnTbd;
+            @tbd.canceled -= instance.OnTbd;
         }
 
         public void RemoveCallbacks(ICookingActions instance)
@@ -248,12 +294,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         }
     }
     public CookingActions @Cooking => new CookingActions(this);
+    public interface IDefaultActions
+    {
+    }
     public interface IDialogueActions
     {
         void OnClick(InputAction.CallbackContext context);
     }
     public interface ICookingActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnTbd(InputAction.CallbackContext context);
     }
 }

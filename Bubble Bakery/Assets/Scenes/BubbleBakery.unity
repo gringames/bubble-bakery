@@ -1770,7 +1770,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Dialogue
+  m_DefaultActionMap: 65336c1d-a846-449d-8e20-132339323b9e
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &1602508179
@@ -1992,6 +1992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timelineParser: {fileID: 1261906334}
+  inputHandler: {fileID: 1526144984}
   dialogueManager: {fileID: 2115842859}
 --- !u!1 &1722409063
 GameObject:

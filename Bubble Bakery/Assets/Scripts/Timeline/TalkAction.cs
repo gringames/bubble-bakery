@@ -1,4 +1,5 @@
 ﻿using Dialogues;
+using Input;
 using UnityEngine;
 
 namespace Timeline
@@ -6,6 +7,7 @@ namespace Timeline
     public class TalkAction : MonoBehaviour, IAction
     {
         [Header("Timeline")] [SerializeField] private TimelineParser timelineParser;
+        [Header("Input")] [SerializeField] private InputHandler inputHandler;
 
         [Header("Dialogue Properties")] [SerializeField]
         private DialogueManager dialogueManager;
@@ -30,9 +32,21 @@ namespace Timeline
             }
 
             _namesAndDialogues = arguments;
+            
+            SetActionMap();
 
             dialogueManager.ShowPanel();
             DisplayNextDialoguePart();
+        }
+
+        private void SetActionMap()
+        {
+            inputHandler.ChangeInputMapTo("Dialogue");
+        }
+        
+        private void ResetActionMap()
+        {
+            inputHandler.ChangeInputMapTo("Default");
         }
 
         private void DisplayNextDialoguePart()
@@ -61,7 +75,7 @@ namespace Timeline
             dialogueManager.AnimateContent(dialogueText);
         }
 
-        // TODO: called OnMBL
+        
         public void HandleMouseClick()
         {
             if (_dialogueIsFinished) DisplayNextDialoguePart();
@@ -76,6 +90,7 @@ namespace Timeline
 
         private void ResetDialogue()
         {
+            ResetActionMap();
             dialogueManager.HidePanel();
             _nameIndex = 0;
             _dialogueIsFinished = false;
