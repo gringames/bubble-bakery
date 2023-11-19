@@ -1920,10 +1920,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.06580782, y: 0.52647257}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1934,7 +1934,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 15.083137, y: 18.373585}
   m_EdgeRadius: 0
 --- !u!212 &531262250
 SpriteRenderer:
@@ -2716,7 +2716,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2730,7 +2730,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 13.53, y: 19.62}
   m_EdgeRadius: 0
 --- !u!114 &1029563541
 MonoBehaviour:
@@ -3033,10 +3033,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.1316185, y: -0.6580899}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3047,7 +3047,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 18.110348, y: 10.476503}
   m_EdgeRadius: 0
 --- !u!212 &1392285245
 SpriteRenderer:
@@ -3455,7 +3455,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timelineParser: {fileID: 1261906334}
-  inputHandler: {fileID: 0}
   minAmount: 1
   maxAmount: 6
   thoughtBubble: {fileID: 415919180}
@@ -3641,7 +3640,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timelineParser: {fileID: 1261906334}
-  inputHandler: {fileID: 0}
   dialogueManager: {fileID: 2115842859}
 --- !u!1 &1722409063
 GameObject:
