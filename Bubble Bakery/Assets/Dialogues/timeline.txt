@@ -15,7 +15,8 @@ TALK§You§You mean, the company that is going to buy my shop
 TALK§Jean§Well, honey, small businesses never last long. 20% of them fail during the first two years. 45% don’t even last five. And 65% close in the first 10.
 TALK§Jean§The fiasco of your bakery was just a matter of time. You’re incredibly lucky that we are willing to pay you for it. And you’re also welcome.
 TALK§You§I know I have a big debt, but I could’ve payed it with a little more time!
-TALK§Jean§Could you? Let’s see. You called your business ‘Bubble Bakery’ because you serve some kind of bubble icing. Come on, anyone can make bubbles, why are yours so special?
+TALK§Jean§Could you? Let’s see. You called your business ‘Bubble Bakery’ because you serve some kind of bubble icing.
+TALK§Jean§Come on, anyone can make bubbles, why are yours so special?
 TALK§You§Well, they-
 TALK§Jean§Bubbles as a theme is, uh… un unwise business plan, I’d say.
 TALK§Jean§But don’t feel bad, not everyone is creative enough for these things.
