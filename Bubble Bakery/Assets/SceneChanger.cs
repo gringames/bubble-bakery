@@ -7,4 +7,13 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene(index);
     }
+
+
+    public void EndGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        Application.Quit();
+    }
 }
