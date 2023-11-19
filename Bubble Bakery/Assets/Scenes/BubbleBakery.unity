@@ -170,7 +170,7 @@ MonoBehaviour:
   timelineParser: {fileID: 1261906334}
   walrus: {fileID: 478366956}
   jean: {fileID: 506827351}
-  cthullu: {fileID: 1630913245}
+  cthullu: {fileID: 659180405}
   cthullusChildren: {fileID: 286403329}
   cthulluAndChildren: {fileID: 1630913245}
   coral: {fileID: 502231805}
