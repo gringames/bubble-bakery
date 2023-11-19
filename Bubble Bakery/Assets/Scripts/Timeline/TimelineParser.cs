@@ -7,6 +7,8 @@ namespace Timeline
 {
     public class TimelineParser : MonoBehaviour
     {
+        [SerializeField] private int nextSceneIndex = 2;
+        
         [Header("Actions")] [SerializeField] private MoveAction moveAction;
         [SerializeField] private OrderAction orderAction;
         [SerializeField] private TalkAction talkAction;
@@ -54,7 +56,7 @@ namespace Timeline
             if (_lineIndex == _lineCount)
             {
                 Debug.Log("end of timeline reached");
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(nextSceneIndex);
                 return;
             }
 
