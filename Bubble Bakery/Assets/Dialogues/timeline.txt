@@ -1,4 +1,6 @@
-ORDER cthullu
+ENTER§cthullu
+ORDER§cthullu
+EXIT§cthullu
 
 STOP
 

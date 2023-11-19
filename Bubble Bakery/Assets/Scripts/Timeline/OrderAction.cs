@@ -1,4 +1,5 @@
 ﻿using System;
+using Input;
 using Orders;
 using TMPro;
 using UnityEngine;
@@ -8,6 +9,7 @@ namespace Timeline
     public class OrderAction : MonoBehaviour, IAction
     {
         [Header("Timeline")] [SerializeField] private TimelineParser timelineParser;
+        [SerializeField] private InputHandler inputHandler;
 
         [Header("Order")] [SerializeField] private int minAmount;
         [SerializeField] private int maxAmount;
@@ -35,14 +37,21 @@ namespace Timeline
                 Debug.LogError("too few arguments for ORDER!");
                 return;
             }
+            
+            inputHandler.ChangeInputMapTo("Default");
+
+            Debug.Log("starting order.");
 
             string characterName = arguments[0];
             OrderManager orderManager = GetOrderManagerToName(characterName);
+            Debug.Log($"name: {characterName}");
 
             Order order = SelectRandomOrder();
             int amount = SelectRandomAmount();
+            Debug.Log($"order: {order} x{amount}");
 
             DisplayThoughtBubble(order, amount);
+            Debug.Log($"displaying thought bubble");
 
             orderManager.InitializeOrder(order, amount);
         }
@@ -76,6 +85,7 @@ namespace Timeline
 
             GameObject sprite = GetSpriteToOrder(order);
             sprite.SetActive(true);
+            amountText.gameObject.SetActive(true);
 
             thoughtBubble.SetActive(true);
         }
@@ -94,6 +104,7 @@ namespace Timeline
         private void ResetOrder()
         {
             thoughtBubble.SetActive(false);
+            amountText.gameObject.SetActive(false);
             cookieImage.SetActive(false);
             donutImage.SetActive(false);
             muffinImage.SetActive(false);
@@ -102,6 +113,8 @@ namespace Timeline
 
         public void Done()
         {
+            Debug.Log($"done");
+
             ResetOrder();
             InformTimelineToGoOn();
         }

@@ -24,7 +24,6 @@ public class MovingObject : MonoBehaviour
 
     private IEnumerator MoveTo(Transform end)
     {
-        Debug.Log("move");
         var endPoint = end.position;
 
         while (!AreCloseEnough(transform.position, endPoint))
@@ -34,8 +33,6 @@ public class MovingObject : MonoBehaviour
         }
     
         OnFinishedMoving?.Invoke();
-        
-        Debug.Log($"invoked move event on {name}");
     }
 
     private static bool AreCloseEnough(Vector3 pos, Vector3 goalPos)

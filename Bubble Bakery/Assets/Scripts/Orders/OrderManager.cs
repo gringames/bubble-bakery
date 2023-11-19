@@ -1,5 +1,4 @@
-﻿using System;
-using Timeline;
+﻿using Timeline;
 using UnityEngine;
 
 namespace Orders
@@ -23,6 +22,8 @@ namespace Orders
 
         public void InitializeOrder(Order order, int amount)
         {
+            Debug.Log($"order init");
+
             _order = order;
             _amount = amount;
 

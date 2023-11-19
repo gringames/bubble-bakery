@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Timeline
 {
@@ -53,13 +54,11 @@ namespace Timeline
             if (_lineIndex == _lineCount)
             {
                 Debug.Log("end of timeline reached");
+                SceneManager.LoadScene(2);
                 return;
-                // TODO: display end scene
             }
 
-            Debug.Log("line index: " + _lineIndex);
             var line = _lines[_lineIndex];
-            Debug.Log("current line = " + line);
             _lineIndex++;
 
             // skip line if it is a comment
