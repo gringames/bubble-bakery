@@ -1,13 +1,14 @@
-﻿using Dialogues;
-using Input;
+﻿using System;
+using Dialogues;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 namespace Timeline
 {
     public class TalkAction : MonoBehaviour, IAction
     {
         [Header("Timeline")] [SerializeField] private TimelineParser timelineParser;
-        [Header("Input")] [SerializeField] private InputHandler inputHandler;
 
         [Header("Dialogue Properties")] [SerializeField]
         private DialogueManager dialogueManager;
@@ -17,6 +18,7 @@ namespace Timeline
         private int _nameIndex = 0;
 
         private bool _dialogueIsFinished;
+        private bool _dialogue;
 
         private void OnEnable()
         {
@@ -32,29 +34,18 @@ namespace Timeline
                 return;
             }
 
+            _dialogue = true;
+
             _namesAndDialogues = arguments;
             
-            SetActionMap();
-
             dialogueManager.ShowPanel();
             DisplayNextDialoguePart();
-        }
-
-        private void SetActionMap()
-        {
-            inputHandler.ChangeInputMapTo("Dialogue");
-        }
-        
-        private void ResetActionMap()
-        {
-            inputHandler.ChangeInputMapTo("Default");
         }
 
         private void DisplayNextDialoguePart()
         {
             if (_nameIndex >= _namesAndDialogues.Length)
             {
-                Debug.Log("dialogue ended.");
                 ResetDialogue();
                 InformTimelineToGoOn();
             }
@@ -76,9 +67,17 @@ namespace Timeline
             dialogueManager.AnimateContent(dialogueText);
         }
 
-        
-        public void HandleMouseClick()
+        private void Update()
         {
+            if (Input.GetMouseButtonDown(0))
+            {
+                MouseDown();
+            }
+        }
+
+        private void MouseDown()
+        {
+            if (!_dialogue) return;
             if (_dialogueIsFinished) DisplayNextDialoguePart();
             else dialogueManager.SkipTyping();
         }
@@ -91,15 +90,14 @@ namespace Timeline
 
         private void ResetDialogue()
         {
-            ResetActionMap();
             dialogueManager.HidePanel();
             _nameIndex = 0;
             _dialogueIsFinished = false;
+            _dialogue = false;
         }
         
         private void InformTimelineToGoOn()
         {
-            Debug.Log("parser, go on pls");
             timelineParser.ParseNextLine();
         }
         

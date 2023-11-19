@@ -108,7 +108,6 @@ namespace Timeline
         private void InformTimelineToGoOn()
         {
             _currentCharacter.OnFinishedMoving -= InformTimelineToGoOn;
-            Debug.Log("parser, go on pls");
             timelineParser.ParseNextLine();
         }
     }

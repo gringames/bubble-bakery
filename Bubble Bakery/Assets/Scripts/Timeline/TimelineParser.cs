@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Timeline
 {
@@ -20,6 +21,7 @@ namespace Timeline
         private const string TALK = "TALK";
         private const string EXIT = "EXIT";
         private const string ORDER = "ORDER";
+        private const string STOP = "STOP";
 
         // PARSING
         private int _lineIndex = 0;
@@ -29,6 +31,9 @@ namespace Timeline
         private void Awake()
         {
             InitializeTimeline();
+
+            if (_lines[0] == STOP) return;
+
             ParseNextLine();
         }
 
@@ -49,13 +54,11 @@ namespace Timeline
             if (_lineIndex == _lineCount)
             {
                 Debug.Log("end of timeline reached");
+                SceneManager.LoadScene(2);
                 return;
-                // TODO: display end scene
             }
 
-            Debug.Log("line index: " + _lineIndex);
             var line = _lines[_lineIndex];
-            Debug.Log("current line = " + line);
             _lineIndex++;
 
             // skip line if it is a comment
@@ -81,34 +84,25 @@ namespace Timeline
             string[] contents = line.Split(splitCharacter);
 
             var action = contents[0];
+            if (action == STOP) return;
+            
             var arguments = GetArguments(contents);
             
-            Debug.Log($"action: {action}");
-            string a = "";
-            foreach (var arg in arguments)
-            {
-                a += arg + ", ";
-            }
-            Debug.Log($"with arguments: {a}");
-
+            
             switch (action)
             {
                 case ENTER:
-                    Debug.Log("case enter");
                     arguments = AddTypeToMoveActionArguments(arguments, true);
                     moveAction.Handle(arguments);
                     break;
                 case EXIT:
-                    Debug.Log("case exit");
                     arguments = AddTypeToMoveActionArguments(arguments, false);
                     moveAction.Handle(arguments);
                     break;
                 case ORDER:
-                    Debug.Log("case order");
                     orderAction.Handle(arguments);
                     break;
                 case TALK:
-                    Debug.Log("case talk");
                     arguments = ConvertAllTalkLinesToArguments(arguments);
                     talkAction.Handle(arguments);
                     break;
@@ -174,9 +168,6 @@ namespace Timeline
                 _lineIndex++;
                 line = _lines[_lineIndex];
             }
-            
-            Debug.Log($"talk lines were added. Line index is now: {_lineIndex}");
-
 
             return talksAsList.ToArray();
         }
