@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Orders
 {
@@ -7,11 +6,12 @@ namespace Orders
     {
         [HideInInspector] public bool wasDropped = false;
         public Order order;
-        
+
         private Camera _mainCam;
         private Vector3 _dragOffset;
         private const float DragSmoothingSpeed = 1000f;
         private Transform _originalTransform;
+
 
         private void Awake()
         {
@@ -22,14 +22,18 @@ namespace Orders
         private void OnMouseDown()
         {
             wasDropped = false;
-            _dragOffset = transform.position - GetMousePos();
         }
 
         private void OnMouseUp()
         {
             wasDropped = true;
             Invoke(nameof(WaitForCollisionElseReset), 1);
-            
+        }
+
+        public void OnMouseDrag()
+        {
+            transform.position
+                = Vector3.MoveTowards(transform.position, GetMousePos() + _dragOffset, DragSmoothingSpeed);
         }
 
         private void WaitForCollisionElseReset()
@@ -39,14 +43,9 @@ namespace Orders
             transform.localScale = _originalTransform.localScale;
         }
 
-        private void OnMouseDrag()
-        {
-            transform.position = Vector3.MoveTowards(transform.position, GetMousePos() + _dragOffset, DragSmoothingSpeed);
-        }
-
         private Vector3 GetMousePos()
         {
-            var mousePos = _mainCam.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
+            var mousePos = _mainCam.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
             return mousePos;
         }

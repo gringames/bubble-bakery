@@ -1,5 +1,4 @@
 ﻿using System;
-using Input;
 using Orders;
 using TMPro;
 using UnityEngine;
@@ -9,7 +8,6 @@ namespace Timeline
     public class OrderAction : MonoBehaviour, IAction
     {
         [Header("Timeline")] [SerializeField] private TimelineParser timelineParser;
-        [SerializeField] private InputHandler inputHandler;
 
         [Header("Order")] [SerializeField] private int minAmount;
         [SerializeField] private int maxAmount;
@@ -38,8 +36,6 @@ namespace Timeline
                 return;
             }
             
-            inputHandler.ChangeInputMapTo("Default");
-
             Debug.Log("starting order.");
 
             string characterName = arguments[0];
