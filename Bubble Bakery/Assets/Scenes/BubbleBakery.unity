@@ -453,7 +453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86913a8583714fc0b1b9d7ea96eaf11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wasDropped: 0
   order: 0
 --- !u!61 &187492440
 BoxCollider2D:
@@ -611,7 +610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86913a8583714fc0b1b9d7ea96eaf11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wasDropped: 0
   order: 0
 --- !u!61 &195975056
 BoxCollider2D:
@@ -1111,7 +1109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86913a8583714fc0b1b9d7ea96eaf11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wasDropped: 0
   order: 0
 --- !u!61 &415919182
 BoxCollider2D:
@@ -1369,10 +1366,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.20300865, y: 3.95865}
+  m_Offset: {x: -0.44303584, y: 3.9586506}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1383,7 +1380,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.609003, y: 18.022552}
+  m_Size: {x: 13.128948, y: 18.022552}
   m_EdgeRadius: 0
 --- !u!114 &478366960
 MonoBehaviour:
@@ -1560,10 +1557,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.0150373, y: 6.1917343}
+  m_Offset: {x: 0.9550326, y: 5.4116497}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1574,7 +1571,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 17.669151, y: 17.616531}
+  m_Size: {x: 14.668831, y: 16.056366}
   m_EdgeRadius: 0
 --- !u!114 &502231809
 MonoBehaviour:
@@ -1720,10 +1717,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.3045082, y: 5.3797045}
+  m_Offset: {x: -0.9556277, y: 5.3797045}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1734,7 +1731,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 17.060131, y: 16.398485}
+  m_Size: {x: 14.53986, y: 16.398485}
   m_EdgeRadius: 0
 --- !u!114 &506827355
 MonoBehaviour:
@@ -1855,6 +1852,7 @@ GameObject:
   - component: {fileID: 531262250}
   - component: {fileID: 531262249}
   - component: {fileID: 531262248}
+  - component: {fileID: 531262251}
   m_Layer: 6
   m_Name: Muffin
   m_TagString: Goody
@@ -1889,7 +1887,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86913a8583714fc0b1b9d7ea96eaf11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wasDropped: 0
   order: 2
 --- !u!61 &531262249
 BoxCollider2D:
@@ -1920,7 +1917,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.06580782, y: 0.52647257}
@@ -1988,6 +1985,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &531262251
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531262246}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &602463913
 GameObject:
   m_ObjectHideFlags: 0
@@ -2148,10 +2172,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.30451393, y: 3.6541405}
+  m_Offset: {x: -0.29554725, y: 3.6541405}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2162,7 +2186,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 29.646618, y: 21.06767}
+  m_Size: {x: 14.044947, y: 21.06767}
   m_EdgeRadius: 0
 --- !u!114 &659180409
 MonoBehaviour:
@@ -2444,7 +2468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86913a8583714fc0b1b9d7ea96eaf11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wasDropped: 0
   order: 0
 --- !u!61 &906384883
 BoxCollider2D:
@@ -2613,6 +2636,7 @@ GameObject:
   - component: {fileID: 1029563539}
   - component: {fileID: 1029563540}
   - component: {fileID: 1029563541}
+  - component: {fileID: 1029563542}
   m_Layer: 6
   m_Name: Cookie
   m_TagString: Goody
@@ -2716,7 +2740,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2744,8 +2768,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86913a8583714fc0b1b9d7ea96eaf11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wasDropped: 0
   order: 0
+--- !u!50 &1029563542
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029563536}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1123270300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2968,6 +3018,7 @@ GameObject:
   - component: {fileID: 1392285245}
   - component: {fileID: 1392285244}
   - component: {fileID: 1392285243}
+  - component: {fileID: 1392285246}
   m_Layer: 6
   m_Name: Donut
   m_TagString: Goody
@@ -3002,7 +3053,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86913a8583714fc0b1b9d7ea96eaf11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wasDropped: 0
   order: 1
 --- !u!61 &1392285244
 BoxCollider2D:
@@ -3033,7 +3083,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.1316185, y: -0.6580899}
@@ -3101,6 +3151,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1392285246
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392285241}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1415941239
 GameObject:
   m_ObjectHideFlags: 0

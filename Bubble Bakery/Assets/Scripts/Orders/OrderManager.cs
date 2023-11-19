@@ -30,14 +30,12 @@ namespace Orders
             _boxCollider2D.enabled = true;
         }
 
-        private void OnTriggerStay(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
+            Debug.Log($"{name} on trigger enter {other.name}");
             if (!other.CompareTag("Goody")) return;
 
             Draggable goody = other.GetComponent<Draggable>();
-
-            if (!goody.wasDropped) return;
-
             CheckGoody(goody);
         }
         

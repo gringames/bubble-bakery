@@ -1,4 +1,5 @@
-﻿using Dialogues;
+﻿using System;
+using Dialogues;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
@@ -45,7 +46,6 @@ namespace Timeline
         {
             if (_nameIndex >= _namesAndDialogues.Length)
             {
-                Debug.Log("dialogue ended.");
                 ResetDialogue();
                 InformTimelineToGoOn();
             }
@@ -66,9 +66,16 @@ namespace Timeline
             _dialogueIsFinished = false;
             dialogueManager.AnimateContent(dialogueText);
         }
-        
-        
-        private void OnMouseDown()
+
+        private void Update()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                MouseDown();
+            }
+        }
+
+        private void MouseDown()
         {
             if (!_dialogue) return;
             if (_dialogueIsFinished) DisplayNextDialoguePart();
@@ -91,7 +98,6 @@ namespace Timeline
         
         private void InformTimelineToGoOn()
         {
-            Debug.Log("parser, go on pls");
             timelineParser.ParseNextLine();
         }
         

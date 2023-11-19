@@ -1,7 +1,9 @@
 ﻿using System;
 using Orders;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Timeline
 {
@@ -26,7 +28,9 @@ namespace Timeline
         [SerializeField] private OrderManager jean;
 
         private const string AmountX = "x";
-        private Unity.Mathematics.Random _random;
+        private readonly Random _random = new();
+        private readonly Order[] _orders = {Order.DONUT, Order.COOKIE, Order.MUFFIN};
+
 
         public void Handle(string[] arguments)
         {
@@ -35,7 +39,7 @@ namespace Timeline
                 Debug.LogError("too few arguments for ORDER!");
                 return;
             }
-            
+
 
             string characterName = arguments[0];
             OrderManager orderManager = GetOrderManagerToName(characterName);
@@ -63,13 +67,13 @@ namespace Timeline
 
         private Order SelectRandomOrder()
         {
-            return Order.MUFFIN;
+            var randIndex = _random.Next(0, 2);
+            return _orders[randIndex];
         }
 
         private int SelectRandomAmount()
         {
-            return 1;
-            return _random.NextInt(minAmount, maxAmount);
+            return _random.Next(minAmount, maxAmount);
         }
 
         private void DisplayThoughtBubble(Order order, int amount)
@@ -77,7 +81,7 @@ namespace Timeline
             amountText.text = AmountX + amount;
 
             GameObject sprite = GetSpriteToOrder(order);
-            
+
             thoughtBubble.SetActive(true);
             sprite.SetActive(true);
             amountText.gameObject.SetActive(true);

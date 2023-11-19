@@ -4,7 +4,6 @@ namespace Orders
 {
     public class Draggable : MonoBehaviour
     {
-        [HideInInspector] public bool wasDropped = false;
         public Order order;
 
         private Camera _mainCam;
@@ -19,15 +18,9 @@ namespace Orders
             _originalTransform = transform;
         }
 
-        private void OnMouseDown()
-        {
-            wasDropped = false;
-        }
-
         private void OnMouseUp()
         {
-            wasDropped = true;
-            Invoke(nameof(WaitForCollisionElseReset), 1);
+            ResetTransform();
         }
 
         public void OnMouseDrag()
@@ -36,7 +29,7 @@ namespace Orders
                 = Vector3.MoveTowards(transform.position, GetMousePos() + _dragOffset, DragSmoothingSpeed);
         }
 
-        private void WaitForCollisionElseReset()
+        private void ResetTransform()
         {
             transform.position = _originalTransform.position;
             transform.rotation = _originalTransform.rotation;

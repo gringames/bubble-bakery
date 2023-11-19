@@ -169,9 +169,6 @@ namespace Timeline
                 line = _lines[_lineIndex];
             }
 
-            Debug.Log($"talk lines were added. Line index is now: {_lineIndex}");
-
-
             return talksAsList.ToArray();
         }
     }
