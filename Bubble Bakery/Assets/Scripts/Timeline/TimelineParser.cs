@@ -8,7 +8,7 @@ namespace Timeline
     public class TimelineParser : MonoBehaviour
     {
         [SerializeField] private int nextSceneIndex = 2;
-        
+
         [Header("Actions")] [SerializeField] private MoveAction moveAction;
         [SerializeField] private OrderAction orderAction;
         [SerializeField] private TalkAction talkAction;
@@ -53,7 +53,7 @@ namespace Timeline
 
         public void ParseNextLine()
         {
-            if (_lineIndex == _lineCount)
+            if (_lineIndex >= _lineCount)
             {
                 Debug.Log("end of timeline reached");
                 SceneManager.LoadScene(nextSceneIndex);
@@ -87,10 +87,10 @@ namespace Timeline
 
             var action = contents[0];
             if (action == STOP) return;
-            
+
             var arguments = GetArguments(contents);
-            
-            
+
+
             switch (action)
             {
                 case ENTER:
@@ -159,19 +159,31 @@ namespace Timeline
 
             var line = _lines[_lineIndex];
 
-            while (line.StartsWith(TALK))
+            while (LineIsValidForTalkAction(line))
             {
-                var splits = line.Split(splitCharacter);
+                if (line.StartsWith(TALK))
+                {
+                    var splits = line.Split(splitCharacter);
 
-                // a talk line is comprised of TALK-name-content, we omit TALK here, as it is shared by all steps
-                talksAsList.Add(splits[1]);
-                talksAsList.Add(splits[2]);
+                    // a talk line is comprised of TALK-name-content, we omit TALK here, as it is shared by all steps
+                    talksAsList.Add(splits[1]);
+                    talksAsList.Add(splits[2]);
+                }
 
                 _lineIndex++;
+                if (_lineIndex >= _lineCount)
+                {
+                      break;
+                }
                 line = _lines[_lineIndex];
             }
 
             return talksAsList.ToArray();
+        }
+
+        private bool LineIsValidForTalkAction(string line)
+        {
+            return line.StartsWith(TALK) || SkipLine(line);
         }
     }
 }
