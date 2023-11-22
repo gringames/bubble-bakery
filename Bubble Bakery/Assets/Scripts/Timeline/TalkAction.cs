@@ -27,9 +27,6 @@ namespace Timeline
 
         public void Handle(string[] arguments)
         {
-            Debug.Log("texr");
-            
-            Debug.Log("entered dialogue handling");
             if (arguments.Length % 2 != 0)
             {
                 Debug.LogError("wrong number of arguments for TALK action! Must be even.");
