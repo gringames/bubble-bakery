@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class HideOnStart : MonoBehaviour
+namespace Util
 {
-    private void Awake()
+    public class HideOnStart : MonoBehaviour
     {
-        gameObject.SetActive(false);
+        private void Awake()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
