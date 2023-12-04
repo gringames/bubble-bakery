@@ -5,18 +5,16 @@ namespace Util
 {
     public class SceneChanger : MonoBehaviour
     {
-        public void ChangeSceneTo(int index)
+        [SerializeField] private int nextSceneIndex = 2;
+
+        public static void ChangeSceneTo(int index)
         {
             SceneManager.LoadScene(index);
         }
 
-
-        public void EndGame()
+        public void ChangeScene()
         {
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#endif
-            Application.Quit();
+            ChangeSceneTo(nextSceneIndex);
         }
     }
 }

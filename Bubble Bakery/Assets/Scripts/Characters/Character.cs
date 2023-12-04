@@ -15,7 +15,7 @@ namespace Characters
         [SerializeField] private TalkAction talkAction;
         [SerializeField] private OrderAction orderAction;
 
-        public void Move()
+        public void Move(bool moveIn)
         {
             if (moveAction is null)
             {
@@ -27,7 +27,7 @@ namespace Characters
             moveAction.Handle(null);
         }
 
-        public void Talk()
+        public void Talk(string text)
         {
             if (talkAction is null)
             {

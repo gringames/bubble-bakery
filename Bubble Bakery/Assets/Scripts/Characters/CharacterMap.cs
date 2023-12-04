@@ -16,9 +16,11 @@ namespace Characters
         {
             CheckInstance();
             InitCharacterMap();
-            
+
             _characterMap.Print("characters");
         }
+
+        #region Singleton
 
         private void CheckInstance()
         {
@@ -37,6 +39,8 @@ namespace Characters
             return Instance != null && Instance != this;
         }
 
+        #endregion
+
         private void InitCharacterMap()
         {
             _characterMap = new Dictionary<string, Character>();
@@ -46,5 +50,11 @@ namespace Characters
                 _characterMap[character.name] = character;
             }
         }
+
+        public Character GetCharacterToName(string characterName)
+        {
+            return _characterMap[characterName];
+        }
+        // TODO: create YOU character
     }
 }

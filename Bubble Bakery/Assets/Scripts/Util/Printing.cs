@@ -7,13 +7,17 @@ namespace Util
 {
     public static class Printing
     {
-        public static void Print<T>(this IEnumerable<T> enumerable, string name = "list")
+        public static void Print<T>(this IEnumerable<T> enumerable, string name = "list", bool error = false)
         {
             var list = enumerable.ToList();
 
             if (list.Count == 0)
             {
-                Debug.Log($"{name}: {{ }}");
+                var log = $"{name}: {{ }}";
+                
+                if (error) Debug.LogError(log);
+                else Debug.Log(log);
+                
                 return;
             }
 
@@ -25,7 +29,9 @@ namespace Util
             s.Length -= 2;
 
             s.Append(" }");
-            Debug.Log(s);
+
+            if (error) Debug.LogError(s);
+            else Debug.Log(s);
         }
     }
 }

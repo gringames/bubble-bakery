@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using Characters;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using Util;
 
 namespace Timeline
 {
     public class TimelineParser : MonoBehaviour
     {
-        [SerializeField] private int nextSceneIndex = 2;
-
-        [Header("Actions")] [SerializeField] private MoveAction moveAction;
-        [SerializeField] private OrderAction orderAction;
-        [SerializeField] private TalkAction talkAction;
-
-        [Header("File")] [SerializeField] private TextAsset timelineFile;
+        [Header("Timeline Input File")] [SerializeField] private TextAsset timelineFile;
         [SerializeField] private string commentCharacter = "#";
         [SerializeField] private string splitCharacter = "§";
         private string[] _lines;
@@ -29,7 +24,7 @@ namespace Timeline
         private int _lineIndex = 0;
         private int _lineCount;
 
-
+        
         private void Awake()
         {
             InitializeTimeline();
@@ -56,7 +51,7 @@ namespace Timeline
             if (_lineIndex >= _lineCount)
             {
                 Debug.Log("end of timeline reached");
-                SceneManager.LoadScene(nextSceneIndex);
+                Logic.Instance.SceneChanger.ChangeScene();
                 return;
             }
 
@@ -88,63 +83,44 @@ namespace Timeline
             var action = contents[0];
             if (action == STOP) return;
 
-            var arguments = GetArguments(contents);
+            var characterName = contents[1];
+            Character character = CharacterMap.Instance.GetCharacterToName(characterName);
+            
+            HandleAction(action, character, contents);
+        }
 
-
+        private static void HandleAction(string action, Character character, string[] contents)
+        {
+            if (character is null)
+            {
+                Debug.LogError($"invalid character name for action {action}!");
+                return;
+            }
+            
             switch (action)
             {
                 case ENTER:
-                    arguments = AddTypeToMoveActionArguments(arguments, true);
-                    moveAction.Handle(arguments);
+                    character.Move(true);
                     break;
                 case EXIT:
-                    arguments = AddTypeToMoveActionArguments(arguments, false);
-                    moveAction.Handle(arguments);
+                    character.Move(false);
                     break;
                 case ORDER:
-                    orderAction.Handle(arguments);
+                    character.Order(); // TODO: add params maybe?
                     break;
                 case TALK:
-                    arguments = ConvertAllTalkLinesToArguments(arguments);
-                    talkAction.Handle(arguments);
+                    // contents = { action, name, args }
+                    if (contents.Length != 3)
+                    {
+                        contents.Print("invalid arguments for TALK action", true);
+                        return;
+                    }
+                    character.Talk(contents[2]); // TODO: add params -> text
                     break;
                 default:
                     Debug.LogError($"unknown action: {action}");
                     break;
             }
-        }
-
-        private static string[] GetArguments(string[] contents)
-        {
-            string[] rest = new string[contents.Length - 1];
-            if (rest.Length == 0) return rest;
-
-            for (int i = 1; i < contents.Length; i++)
-            {
-                rest[i - 1] = contents[i];
-            }
-
-            return rest;
-        }
-
-        private static string[] AddTypeToMoveActionArguments(string[] originalArguments, bool isEnter)
-        {
-            int originalLength = originalArguments.Length;
-
-            string[] newArguments = new string[originalLength + 1];
-
-            for (int i = 0; i < originalLength; i++)
-            {
-                newArguments[i] = originalArguments[i];
-            }
-
-            string type = isEnter
-                ? MoveAction.MoveIn
-                : MoveAction.MoveOut;
-
-            newArguments[originalLength] = type;
-
-            return newArguments;
         }
 
         private string[] ConvertAllTalkLinesToArguments(string[] currentArguments)
@@ -173,8 +149,9 @@ namespace Timeline
                 _lineIndex++;
                 if (_lineIndex >= _lineCount)
                 {
-                      break;
+                    break;
                 }
+
                 line = _lines[_lineIndex];
             }
 
