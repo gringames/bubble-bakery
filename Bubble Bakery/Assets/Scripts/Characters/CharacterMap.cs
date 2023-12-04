@@ -8,7 +8,7 @@ namespace Characters
     {
         public static CharacterMap Instance;
 
-        [SerializeField] private Character[] _characters;
+        [SerializeField] private Character[] characters;
 
         private Dictionary<string, Character> _characterMap;
 
@@ -24,7 +24,8 @@ namespace Characters
         {
             if (ExistsOtherInstanceAlready())
             {
-                Destroy(this);
+                Debug.LogError($"There are more than 1 CharacterMaps in the scene! Deleting {name}");
+                Destroy(gameObject);
                 return;
             }
 
@@ -40,7 +41,7 @@ namespace Characters
         {
             _characterMap = new Dictionary<string, Character>();
 
-            foreach (var character in _characters)
+            foreach (var character in characters)
             {
                 _characterMap[character.name] = character;
             }
